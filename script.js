@@ -36,7 +36,7 @@ const projects = [
       "Full-stack application featuring JWT authentication, protected routes, and role-aware UI.",
     tech: ["React", "Node.js", "MongoDB", "JWT"],
     repo: "https://github.com/jhm323/se_project_react",
-    image: "assets/screenshots/wtwr.png",
+    image: "assets/wtwr.png",
   },
   {
     title: "News Explorer",
@@ -44,7 +44,7 @@ const projects = [
       "React application that fetches and displays recent news articles with pagination and saved items.",
     tech: ["React", "REST APIs", "CSS"],
     repo: "https://github.com/jhm323/News-Explorer",
-    image: "assets/screenshots/news-explorer.png",
+    image: "assets/news-explorer.png",
   },
   {
     title: "Around the U.S.",
@@ -52,7 +52,7 @@ const projects = [
       "Responsive frontend project translating Figma designs into semantic HTML and BEM-based CSS.",
     tech: ["HTML", "CSS", "Flexbox", "Grid"],
     repo: "https://github.com/jhm323/se_project_aroundtheus",
-    image: "assets/screenshots/around-us.png",
+    image: "assets/around-us.png",
   },
 ];
 
