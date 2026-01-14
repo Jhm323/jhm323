@@ -3,14 +3,14 @@
    ======================================== */
 :root {
   /* Colors - Light Mode */
-  --bg: #f9fafb;
-  --color-text: #111827;
-  --muted: #6b7280;
-  --accent: #2563eb;
-  --card: #ffffff;
-  --color-black: #000000;
-  --color-white: #ffffff;
-  --color-accent: #60a5fa;
+  --bg: #f1f5f9; /* Light blue-gray */
+  --color-text: #1e293b; /* Deep slate */
+  --muted: #64748b; /* Slate */
+  --accent: #2563eb; /* Royal blue */
+  --card: #f8fafc; /* Off-white */
+  --color-black: #0f172a;
+  --color-white: #f1f5f9;
+  --color-accent: #3b82f6; /* Bright blue */
 
   /* Spacing */
   --spacing-sm: 8px;
@@ -43,12 +43,9 @@ body {
    HEADER
    ======================================== */
 header {
+  position: relative;
   padding: var(--spacing-xl);
-  background-image: url(assets/header-bg.png);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  color: var(--color-white);
+  color: #ffffff;
   text-align: center;
   min-height: 200px;
   display: flex;
@@ -56,6 +53,46 @@ header {
   justify-content: center;
   align-items: center;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.header__image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(
+      135deg,
+      rgba(37, 99, 235, 0.3) 0%,
+      rgba(59, 130, 246, 0.2) 100%
+    ),
+    url(assets/header-bg.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 0;
+  transition: background-image 0.4s ease;
+}
+
+.header__content {
+  position: relative;
+  z-index: 1;
+}
+
+.header__content h1,
+.header__content p {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Dark mode header background with purple/indigo tint */
+body.dark .header__image {
+  background-image: linear-gradient(
+      135deg,
+      rgba(79, 70, 229, 0.4) 0%,
+      rgba(99, 102, 241, 0.3) 100%
+    ),
+    url(assets/header-bg_dark.png);
 }
 
 /* ========================================
@@ -192,6 +229,79 @@ main {
 }
 
 /* ========================================
+   ABOUT SECTION
+   ======================================== */
+.about-section {
+  margin-bottom: var(--spacing-xl);
+  padding: var(--spacing-lg);
+  background: var(--card);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.about-section h2 {
+  color: var(--accent);
+  margin-bottom: var(--spacing-md);
+  font-size: 1.75rem;
+}
+
+.about-section p {
+  color: var(--muted);
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+/* ========================================
+   SECTIONS
+   ======================================== */
+section {
+  margin-bottom: var(--spacing-xl);
+}
+
+section h2 {
+  color: var(--color-text);
+  margin-bottom: var(--spacing-lg);
+  font-size: 1.75rem;
+  font-weight: 600;
+}
+
+/* ========================================
+   FOOTER
+   ======================================== */
+footer {
+  background: var(--color-black);
+  color: var(--color-white);
+  text-align: center;
+  padding: var(--spacing-lg);
+  margin-top: var(--spacing-xl);
+}
+
+footer p {
+  margin: 0;
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+/* Dark mode adjustments for new sections */
+body.dark .about-section {
+  background: #1a1a1a;
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.05);
+}
+
+body.dark section h2 {
+  color: var(--color-white);
+}
+
+body.dark .about-section h2 {
+  color: var(--color-accent);
+}
+
+body.dark .about-section p {
+  color: var(--color-white);
+  opacity: 0.9;
+}
+
+/* ========================================
    DARK MODE
    ======================================== */
 body.dark {
@@ -200,8 +310,8 @@ body.dark {
 }
 
 body.dark header {
-  background-image: url(assets/header-bg_dark.png);
   background-color: var(--color-black);
+  background-image: url(assets/header-bg_dark.png);
 }
 
 body.dark .project-card {

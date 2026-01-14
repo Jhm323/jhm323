@@ -8,17 +8,20 @@
   </head>
   <body>
     <header>
-      <h1>James Holden Moore</h1>
-      <p>Software Engineer | Data & Automation Specialist</p>
-      <nav>
-        <a href="https://github.com/jhm323">GitHub</a>
-        <a href="https://www.linkedin.com/in/james-holden-moore">LinkedIn</a>
-      </nav>
-      <button id="theme-toggle">Toggle Theme</button>
+      <div class="header__image"></div>
+      <div class="header__content">
+        <h1>James Holden Moore</h1>
+        <p>Software Engineer | Data & Automation Specialist</p>
+        <nav>
+          <a href="https://github.com/jhm323">GitHub</a>
+          <a href="https://www.linkedin.com/in/james-holden-moore">LinkedIn</a>
+        </nav>
+        <button id="theme-toggle">Toggle Theme</button>
+      </div>
     </header>
 
     <main>
-      <section>
+      <section class="about-section">
         <h2>About</h2>
         <p>
           Software engineer with 5+ years of experience building data-driven
@@ -26,30 +29,18 @@
         </p>
       </section>
 
-      <!-- <section>
-      <h2>Projects</h2>
-      <ul>
-        <li>
-          <a href="https://github.com/jhm323/se_project_react">
-            WTWR – Full-Stack Authentication App
-          </a>
-        </li>
-        <li>
-          <a href="https://github.com/jhm323/News-Explorer">
-            News Explorer – React News App
-          </a>
-        </li>
-      </ul>
-    </section> -->
-
       <section id="projects">
         <h2>Projects</h2>
-        <div id="project-grid" class="project-grid"></div>
+        <div id="project-grid" class="project-grid">
+          <!-- Projects will be dynamically inserted here -->
+        </div>
       </section>
     </main>
+
     <footer>
       <p>© <span id="current-year"></span> James Holden Moore</p>
     </footer>
+
     <script src="script.js"></script>
   </body>
 </html>
