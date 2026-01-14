@@ -3,13 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="James Holden Moore - Software Engineer with 5+ years of experience in full-stack development, data-driven applications, and AI tools."
+    />
     <title>James Holden Moore | Software Engineer</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body class="page">
-    <!-- Scroll Progress Bar -->
-    <div class="scroll-progress" id="scroll-progress"></div>
+  <body class="page page--dark">
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-progress" id="scrollProgress"></div>
 
+    <!-- Header -->
     <header class="header">
       <div class="header__image"></div>
       <div class="header__content">
@@ -17,24 +22,33 @@
         <p class="header__subtitle">
           Software Engineer | Data & Automation Specialist
         </p>
-        <nav class="nav">
-          <a href="https://github.com/jhm323" class="nav__link">GitHub</a>
+        <nav class="nav" aria-label="Main navigation">
+          <a
+            href="https://github.com/jhm323"
+            class="nav__link"
+            target="_blank"
+            rel="noopener noreferrer"
+            >GitHub</a
+          >
           <a
             href="https://www.linkedin.com/in/james-holden-moore"
             class="nav__link"
+            target="_blank"
+            rel="noopener noreferrer"
             >LinkedIn</a
           >
         </nav>
-        <button class="button button--theme-toggle" id="theme-toggle">
+        <button class="button" id="themeToggle" aria-label="Toggle theme">
           Toggle Theme
         </button>
       </div>
     </header>
 
+    <!-- Main Content -->
     <main class="main">
       <!-- About Section -->
-      <section class="about fade-element">
-        <h2 class="about__title">About</h2>
+      <section class="about fade-element" aria-labelledby="aboutTitle">
+        <h2 class="about__title" id="aboutTitle">About</h2>
         <p class="about__text">
           Software engineer with 5+ years of experience building data-driven
           applications, automating workflows, and AI-enabled tools.
@@ -42,113 +56,76 @@
       </section>
 
       <!-- Skills Section -->
-      <section class="skills fade-element" id="skills">
-        <h2 class="skills__title">Technical Skills</h2>
-        <div class="skills__grid">
-          <div class="skill-category">
-            <h3 class="skill-category__title">Frontend</h3>
-            <div class="skill">
-              <span class="skill__name">React</span>
-              <div class="skill__bar">
-                <div class="skill__fill" data-skill="90"></div>
-              </div>
-            </div>
-            <div class="skill">
-              <span class="skill__name">JavaScript</span>
-              <div class="skill__bar">
-                <div class="skill__fill" data-skill="95"></div>
-              </div>
-            </div>
-            <div class="skill">
-              <span class="skill__name">HTML/CSS</span>
-              <div class="skill__bar">
-                <div class="skill__fill" data-skill="95"></div>
-              </div>
-            </div>
-          </div>
-
-          <div class="skill-category">
-            <h3 class="skill-category__title">Backend</h3>
-            <div class="skill">
-              <span class="skill__name">Node.js</span>
-              <div class="skill__bar">
-                <div class="skill__fill" data-skill="85"></div>
-              </div>
-            </div>
-            <div class="skill">
-              <span class="skill__name">MongoDB</span>
-              <div class="skill__bar">
-                <div class="skill__fill" data-skill="80"></div>
-              </div>
-            </div>
-            <div class="skill">
-              <span class="skill__name">REST APIs</span>
-              <div class="skill__bar">
-                <div class="skill__fill" data-skill="90"></div>
-              </div>
-            </div>
-          </div>
-
-          <div class="skill-category">
-            <h3 class="skill-category__title">Tools & Other</h3>
-            <div class="skill">
-              <span class="skill__name">Git</span>
-              <div class="skill__bar">
-                <div class="skill__fill" data-skill="90"></div>
-              </div>
-            </div>
-            <div class="skill">
-              <span class="skill__name">Python</span>
-              <div class="skill__bar">
-                <div class="skill__fill" data-skill="85"></div>
-              </div>
-            </div>
-            <div class="skill">
-              <span class="skill__name">Docker</span>
-              <div class="skill__bar">
-                <div class="skill__fill" data-skill="75"></div>
-              </div>
-            </div>
-          </div>
-        </div>
+      <section
+        class="skills fade-element"
+        id="skills"
+        aria-labelledby="skillsTitle"
+      >
+        <h2 class="skills__title" id="skillsTitle">Technical Skills</h2>
+        <div class="skills__grid" id="skillsGrid"></div>
       </section>
 
-      <!-- GitHub Stats -->
-      <section class="github fade-element" id="github-stats">
-        <h2 class="github__title">GitHub Activity</h2>
-        <div class="github__cards">
-          <img
-            class="github__card"
-            src="https://github-readme-stats.vercel.app/api?username=jhm323&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0f172a"
-            alt="GitHub Stats"
-          />
-          <img
-            class="github__card"
-            src="https://github-readme-streak-stats.herokuapp.com/?user=jhm323&theme=tokyonight&hide_border=true&background=0f172a"
-            alt="GitHub Streak"
-          />
-        </div>
+      <!-- GitHub Section -->
+      <section
+        class="github fade-element"
+        id="github"
+        aria-labelledby="githubTitle"
+      >
+        <h2 class="github__title" id="githubTitle">GitHub Activity</h2>
+        <a
+          href="https://github.com/jhm323"
+          class="github__link"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <div class="github__card">
+            <svg
+              class="github__icon"
+              viewBox="0 0 16 16"
+              width="48"
+              height="48"
+              aria-hidden="true"
+            >
+              <path
+                fill="currentColor"
+                d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"
+              ></path>
+            </svg>
+            <h3 class="github__card-title">View My GitHub Profile</h3>
+            <p class="github__card-text">
+              Check out my repositories and contributions →
+            </p>
+          </div>
+        </a>
       </section>
 
       <!-- Projects Section -->
-      <section class="projects fade-element" id="projects">
-        <h2 class="projects__title">Projects</h2>
-        <div class="projects__grid" id="project-grid">
-          <!-- Projects will be dynamically inserted here -->
-        </div>
+      <section
+        class="projects fade-element"
+        id="projects"
+        aria-labelledby="projectsTitle"
+      >
+        <h2 class="projects__title" id="projectsTitle">Projects</h2>
+        <div class="projects__grid" id="projectGrid"></div>
       </section>
     </main>
 
+    <!-- Footer -->
     <footer class="footer">
       <p class="footer__text">
-        © <span id="current-year"></span> James Holden Moore
+        © <span id="currentYear"></span> James Holden Moore
       </p>
     </footer>
 
-    <!-- Easter Egg Overlay -->
-    <div class="easter-egg" id="easter-egg">
+    <!-- Easter Egg -->
+    <div
+      class="easter-egg"
+      id="easterEgg"
+      role="dialog"
+      aria-label="Easter egg surprise"
+    >
       <div class="easter-egg__content">
-        <h1 class="easter-egg__title">🎉 You found the secret! 🎉</h1>
+        <h2 class="easter-egg__title">🎉 You found the secret! 🎉</h2>
         <p class="easter-egg__subtitle">Konami Code Master!</p>
         <p class="easter-egg__message">
           Hiring developers who explore? Let's talk! 🚀
@@ -156,6 +133,8 @@
       </div>
     </div>
 
+    <!-- Load constants first, then main script -->
+    <script src="constants.js"></script>
     <script src="script.js"></script>
   </body>
 </html>

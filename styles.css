@@ -1,40 +1,40 @@
 /* ========================================
-   CSS VARIABLES
+   CSS CUSTOM PROPERTIES
    ======================================== */
 :root {
-  /* Colors - Dark Mode (Default) */
   --bg: #0f172a;
-  --color-text: #f1f5f9;
+  --text: #f1f5f9;
   --muted: #94a3b8;
   --accent: #3b82f6;
+  --accent-light: #60a5fa;
   --card: #1a1a1a;
-  --color-black: #0f172a;
-  --color-white: #f1f5f9;
-  --color-accent: #60a5fa;
-
-  /* Spacing */
+  --black: #0f172a;
+  --white: #f1f5f9;
   --spacing-sm: 8px;
   --spacing-md: 16px;
   --spacing-lg: 24px;
   --spacing-xl: 32px;
-
-  /* Transitions */
-  --transition-fast: 0.2s ease;
+  --transition: 0.2s ease;
+  --shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  --shadow-hover: 0 12px 32px rgba(0, 0, 0, 0.12);
 }
 
-/* Light Mode Override */
 .page:not(.page--dark) {
   --bg: #f1f5f9;
-  --color-text: #1e293b;
+  --text: #1e293b;
   --muted: #64748b;
   --accent: #2563eb;
   --card: #f8fafc;
+  --black: #1e293b;
+  --white: #ffffff;
 }
 
 /* ========================================
-   BASE STYLES
+   BASE
    ======================================== */
-* {
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -42,29 +42,26 @@
 
 .page {
   background: var(--bg);
-  color: var(--color-text);
+  color: var(--text);
   font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   line-height: 1.6;
   min-height: 100vh;
 }
 
 /* ========================================
-   SCROLL PROGRESS BAR
+   UTILITIES
    ======================================== */
 .scroll-progress {
   position: fixed;
   top: 0;
   left: 0;
-  width: 0%;
+  width: 0;
   height: 4px;
-  background: linear-gradient(90deg, var(--accent), var(--color-accent));
+  background: linear-gradient(90deg, var(--accent), var(--accent-light));
   z-index: 9999;
   transition: width 0.1s ease;
 }
 
-/* ========================================
-   SCROLL ANIMATIONS
-   ======================================== */
 .fade-element {
   opacity: 0;
   transform: translateY(30px);
@@ -82,43 +79,37 @@
 .header {
   position: relative;
   padding: var(--spacing-xl);
-  color: #ffffff;
+  color: var(--white);
   text-align: center;
   min-height: 200px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow);
   overflow: hidden;
 }
 
 .header__image {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: linear-gradient(
+  inset: 0;
+  background: linear-gradient(
       135deg,
-      rgba(79, 70, 229, 0.4) 0%,
-      rgba(99, 102, 241, 0.3) 100%
+      rgba(79, 70, 229, 0.4),
+      rgba(99, 102, 241, 0.3)
     ),
-    url(assets/header-bg_dark.png);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+    url(assets/header-bg_dark.png) center/cover no-repeat;
+  transition: background 0.4s ease;
   z-index: 0;
-  transition: background-image 0.4s ease;
 }
 
 .page:not(.page--dark) .header__image {
-  background-image: linear-gradient(
+  background: linear-gradient(
       135deg,
-      rgba(37, 99, 235, 0.3) 0%,
-      rgba(59, 130, 246, 0.2) 100%
+      rgba(37, 99, 235, 0.3),
+      rgba(59, 130, 246, 0.2)
     ),
-    url(assets/header-bg.png);
+    url(assets/header-bg.png) center/cover no-repeat;
 }
 
 .header__content {
@@ -133,10 +124,12 @@
 
 .header__title {
   margin-bottom: var(--spacing-sm);
+  font-size: clamp(1.75rem, 5vw, 2.5rem);
 }
 
 .header__subtitle {
   margin-bottom: var(--spacing-lg);
+  font-size: clamp(1rem, 3vw, 1.25rem);
 }
 
 /* ========================================
@@ -147,10 +140,10 @@
 }
 
 .nav__link {
-  color: var(--color-white);
+  color: var(--white);
   margin-right: var(--spacing-md);
   text-decoration: none;
-  transition: opacity var(--transition-fast);
+  transition: opacity var(--transition);
 }
 
 .nav__link:hover {
@@ -158,7 +151,7 @@
 }
 
 /* ========================================
-   BUTTONS
+   BUTTON
    ======================================== */
 .button {
   padding: var(--spacing-sm) var(--spacing-md);
@@ -166,10 +159,10 @@
   border: none;
   border-radius: 6px;
   background: var(--accent);
-  color: var(--color-white);
+  color: var(--white);
   font-size: 14px;
   font-weight: 500;
-  transition: all var(--transition-fast);
+  transition: all var(--transition);
 }
 
 .button:hover {
@@ -181,12 +174,8 @@
   transform: translateY(0);
 }
 
-.button--theme-toggle {
-  background: var(--accent);
-}
-
 /* ========================================
-   MAIN CONTENT
+   MAIN
    ======================================== */
 .main {
   padding: var(--spacing-xl);
@@ -195,20 +184,39 @@
 }
 
 /* ========================================
-   ABOUT SECTION
+   SECTIONS (Shared styles)
    ======================================== */
-.about {
+.about,
+.skills,
+.github {
   margin-bottom: var(--spacing-xl);
-  padding: var(--spacing-lg);
+  padding: var(--spacing-xl);
   background: var(--card);
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
 }
 
-.about__title {
+.about__title,
+.skills__title,
+.github__title,
+.projects__title {
   color: var(--accent);
-  margin-bottom: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
   font-size: 1.75rem;
+}
+
+.skills__title,
+.github__title {
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+}
+
+/* ========================================
+   ABOUT
+   ======================================== */
+.about {
+  padding: var(--spacing-lg);
+  border-radius: 12px;
 }
 
 .about__text {
@@ -217,33 +225,9 @@
   line-height: 1.8;
 }
 
-.page:not(.page--dark) .about {
-  background: #f8fafc;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-}
-
-.page:not(.page--dark) .about__text {
-  color: #64748b;
-}
-
 /* ========================================
-   SKILLS SECTION
+   SKILLS
    ======================================== */
-.skills {
-  margin-bottom: var(--spacing-xl);
-  padding: var(--spacing-xl);
-  background: var(--card);
-  border-radius: 16px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-}
-
-.skills__title {
-  color: var(--accent);
-  margin-bottom: var(--spacing-xl);
-  font-size: 1.75rem;
-  text-align: center;
-}
-
 .skills__grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -251,7 +235,7 @@
 }
 
 .skill-category__title {
-  color: var(--color-accent);
+  color: var(--accent-light);
   margin-bottom: var(--spacing-md);
   font-size: 1.25rem;
 }
@@ -264,7 +248,6 @@
   display: block;
   margin-bottom: 8px;
   font-weight: 500;
-  color: var(--color-text);
 }
 
 .skill__bar {
@@ -277,82 +260,62 @@
 
 .skill__fill {
   height: 100%;
-  background: linear-gradient(90deg, var(--accent), var(--color-accent));
-  width: 0%;
-  transition: width 1.5s ease;
+  background: linear-gradient(90deg, var(--accent), var(--accent-light));
+  width: 0;
   border-radius: 4px;
+  transition: width 1.5s ease;
 }
 
 .skill__fill--animated {
   width: var(--skill-width);
 }
 
-.page:not(.page--dark) .skills {
-  background: #f8fafc;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-}
-
-.page:not(.page--dark) .skill__name {
-  color: #1e293b;
-}
-
 /* ========================================
-   GITHUB STATS SECTION
+   GITHUB
    ======================================== */
-.github {
-  margin-bottom: var(--spacing-xl);
-  padding: var(--spacing-xl);
-  background: var(--card);
-  border-radius: 16px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-}
-
-.github__title {
-  color: var(--accent);
-  margin-bottom: var(--spacing-xl);
-  font-size: 1.75rem;
-  text-align: center;
-}
-
-.github__cards {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--spacing-lg);
-  justify-content: center;
+.github__link {
+  text-decoration: none;
+  display: block;
 }
 
 .github__card {
-  max-width: 100%;
-  height: auto;
-  border-radius: 8px;
+  background: var(--card);
+  border: 2px solid var(--accent);
+  border-radius: 12px;
+  padding: var(--spacing-xl);
+  text-align: center;
+  transition: transform var(--transition), box-shadow var(--transition);
+  cursor: pointer;
 }
 
-.page:not(.page--dark) .github {
-  background: #f8fafc;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+.github__card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(59, 130, 246, 0.3);
+}
+
+.github__icon {
+  color: var(--accent);
+  margin-bottom: var(--spacing-md);
+}
+
+.github__card-title {
+  color: var(--text);
+  font-size: 1.5rem;
+  margin-bottom: var(--spacing-sm);
+}
+
+.github__card-text {
+  color: var(--muted);
+  font-size: 1.1rem;
 }
 
 /* ========================================
-   PROJECTS SECTION
+   PROJECTS
    ======================================== */
 .projects {
   margin-bottom: var(--spacing-xl);
 }
 
-.projects__title {
-  color: var(--color-text);
-  margin-bottom: var(--spacing-lg);
-  font-size: 1.75rem;
-  font-weight: 600;
-}
-
-.page:not(.page--dark) .projects__title {
-  color: #1e293b;
-}
-
-/* ========================================
-   BENTO GRID
-   ======================================== */
 .projects__grid {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
@@ -361,16 +324,14 @@
 }
 
 /* ========================================
-   PROJECT CARDS (Bento Style)
+   PROJECT CARDS
    ======================================== */
 .project-card {
   border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  box-shadow: var(--shadow);
   background: var(--card);
-  transition: transform var(--transition-fast),
-    box-shadow var(--transition-fast);
-  position: relative;
+  transition: transform var(--transition), box-shadow var(--transition);
   display: flex;
   flex-direction: column;
   transform-style: preserve-3d;
@@ -380,22 +341,18 @@
   grid-column: span 4;
   grid-row: span 2;
 }
-
 .project-card:nth-child(2) {
   grid-column: span 2;
   grid-row: span 2;
 }
-
 .project-card:nth-child(3) {
   grid-column: span 3;
   grid-row: span 1;
 }
-
 .project-card:nth-child(4) {
   grid-column: span 3;
   grid-row: span 1;
 }
-
 .project-card:nth-child(5) {
   grid-column: span 2;
   grid-row: span 1;
@@ -403,11 +360,7 @@
 
 .project-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
-}
-
-.project-card--tilt-active {
-  transform: perspective(1000px);
+  box-shadow: var(--shadow-hover);
 }
 
 .project-card__image {
@@ -429,8 +382,7 @@
 }
 
 .project-card__title {
-  margin-top: 0;
-  margin-bottom: 12px;
+  margin: 0 0 12px;
   font-size: 1.25rem;
 }
 
@@ -446,7 +398,6 @@
 
 .project-card__tech-list {
   list-style: none;
-  padding: 0;
   display: flex;
   flex-wrap: wrap;
   gap: var(--spacing-sm);
@@ -468,40 +419,25 @@
   font-weight: 600;
   text-decoration: none;
   color: var(--accent);
-  transition: color var(--transition-fast);
+  transition: color var(--transition);
 }
 
 .project-card__link:hover {
-  color: var(--color-accent);
-}
-
-.page:not(.page--dark) .project-card {
-  background: #f8fafc;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-}
-
-.page:not(.page--dark) .project-card:hover {
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
-}
-
-.page:not(.page--dark) .project-card__tech-item {
-  background: #f1f5f9;
-  color: #64748b;
+  color: var(--accent-light);
 }
 
 /* ========================================
    FOOTER
    ======================================== */
 .footer {
-  background: var(--color-black);
-  color: var(--color-white);
+  background: var(--black);
+  color: var(--white);
   text-align: center;
   padding: var(--spacing-lg);
   margin-top: var(--spacing-xl);
 }
 
 .footer__text {
-  margin: 0;
   font-size: 14px;
   opacity: 0.8;
 }
@@ -511,10 +447,7 @@
    ======================================== */
 .easter-egg {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  inset: 0;
   background: rgba(15, 23, 42, 0.95);
   display: none;
   justify-content: center;
@@ -529,12 +462,12 @@
 
 .easter-egg__content {
   text-align: center;
-  color: var(--color-white);
+  color: var(--white);
   animation: bounceIn 0.8s ease;
 }
 
 .easter-egg__title {
-  font-size: 3rem;
+  font-size: clamp(2rem, 5vw, 3rem);
   margin-bottom: var(--spacing-lg);
   background: linear-gradient(45deg, #f093fb, #f5576c, #4facfe);
   -webkit-background-clip: text;
@@ -549,7 +482,7 @@
 
 .easter-egg__message {
   font-size: 1.2rem;
-  color: var(--color-accent);
+  color: var(--accent-light);
   font-weight: 600;
 }
 
@@ -580,28 +513,21 @@
 }
 
 /* ========================================
-   RESPONSIVE BENTO GRID
+   RESPONSIVE
    ======================================== */
 @media (max-width: 1024px) {
   .projects__grid {
     grid-template-columns: repeat(4, 1fr);
   }
-
   .project-card:nth-child(1) {
     grid-column: span 4;
     grid-row: span 2;
   }
-
-  .project-card:nth-child(2) {
-    grid-column: span 2;
-    grid-row: span 1;
-  }
-
+  .project-card:nth-child(2),
   .project-card:nth-child(3) {
     grid-column: span 2;
     grid-row: span 1;
   }
-
   .project-card:nth-child(4) {
     grid-column: span 4;
     grid-row: span 1;
@@ -613,44 +539,27 @@
     min-height: 150px;
     padding: var(--spacing-lg);
   }
-
   .main {
     padding: var(--spacing-md);
   }
-
   .projects__grid {
     grid-template-columns: 1fr;
     gap: var(--spacing-lg);
   }
-
-  .project-card:nth-child(1),
-  .project-card:nth-child(2),
-  .project-card:nth-child(3),
-  .project-card:nth-child(4),
-  .project-card:nth-child(5) {
+  .project-card,
+  .project-card:nth-child(n) {
     grid-column: span 1;
     grid-row: span 1;
   }
-
   .project-card__image,
   .project-card:nth-child(1) .project-card__image {
     height: 200px;
   }
-
   .project-card:nth-child(1) .project-card__title {
     font-size: 1.25rem;
   }
-
   .skills__grid {
     grid-template-columns: 1fr;
-  }
-
-  .github__cards {
-    flex-direction: column;
-  }
-
-  .easter-egg__title {
-    font-size: 2rem;
   }
 }
 
@@ -659,7 +568,6 @@
     margin-right: var(--spacing-sm);
     font-size: 14px;
   }
-
   .button {
     width: 100%;
   }

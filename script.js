@@ -1,100 +1,111 @@
-// Smooth scroll for internal anchor links
-document.querySelectorAll('a[href^="#"]').forEach((link) => {
-  link.addEventListener("click", (event) => {
-    event.preventDefault();
-    const targetId = link.getAttribute("href");
-    const targetElement = document.querySelector(targetId);
+"use strict";
 
-    if (targetElement) {
-      targetElement.scrollIntoView({ behavior: "smooth" });
-    }
-  });
-});
+// CONFIG, SKILLS, and PROJECTS are now in constants.js
 
-// Update footer year automatically
-const yearSpan = document.getElementById("current-year");
-if (yearSpan) {
-  yearSpan.textContent = new Date().getFullYear();
-}
+// ========================================
+// DOM ELEMENTS
+// ========================================
+const elements = {
+  page: document.querySelector(".page"),
+  scrollProgress: document.getElementById("scrollProgress"),
+  themeToggle: document.getElementById("themeToggle"),
+  currentYear: document.getElementById("currentYear"),
+  skillsGrid: document.getElementById("skillsGrid"),
+  projectGrid: document.getElementById("projectGrid"),
+  easterEgg: document.getElementById("easterEgg"),
+};
 
-// Simple theme toggle (dark is default)
-const themeToggle = document.getElementById("theme-toggle");
-const page = document.querySelector(".page");
-
-// Set dark mode as default
-page.classList.add("page--dark");
-
-if (themeToggle) {
-  themeToggle.addEventListener("click", () => {
-    page.classList.toggle("page--dark");
+// ========================================
+// THEME
+// ========================================
+function initTheme() {
+  elements.themeToggle?.addEventListener("click", () => {
+    elements.page.classList.toggle("page--dark");
   });
 }
 
 // ========================================
-// SCROLL PROGRESS BAR
+// SCROLL PROGRESS
 // ========================================
-const scrollProgress = document.getElementById("scroll-progress");
-
-window.addEventListener("scroll", () => {
-  const winScroll = document.documentElement.scrollTop;
-  const height =
-    document.documentElement.scrollHeight -
-    document.documentElement.clientHeight;
-  const scrolled = (winScroll / height) * 100;
-  scrollProgress.style.width = scrolled + "%";
-});
+function updateScrollProgress() {
+  const scrolled =
+    (window.scrollY /
+      (document.documentElement.scrollHeight - window.innerHeight)) *
+    100;
+  elements.scrollProgress.style.width = `${scrolled}%`;
+}
 
 // ========================================
 // SCROLL ANIMATIONS
 // ========================================
-const observerOptions = {
-  threshold: 0.1,
-  rootMargin: "0px 0px -100px 0px",
-};
-
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("fade-element--visible");
-
-      // Animate skill bars when visible
-      if (entry.target.classList.contains("skills")) {
-        animateSkills();
+function initScrollAnimations() {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("fade-element--visible");
+        if (entry.target.id === "skills") animateSkills();
       }
-    }
+    });
+  }, CONFIG.observerOptions);
+
+  document
+    .querySelectorAll(".fade-element")
+    .forEach((el) => observer.observe(el));
+}
+
+// ========================================
+// SKILLS
+// ========================================
+function renderSkills() {
+  const fragment = document.createDocumentFragment();
+
+  SKILLS.forEach((category) => {
+    const categoryEl = document.createElement("div");
+    categoryEl.className = "skill-category";
+
+    const skillsHTML = category.items
+      .map(
+        (skill) => `
+      <div class="skill">
+        <span class="skill__name">${skill.name}</span>
+        <div class="skill__bar">
+          <div class="skill__fill" data-skill="${skill.level}"></div>
+        </div>
+      </div>
+    `
+      )
+      .join("");
+
+    categoryEl.innerHTML = `
+      <h3 class="skill-category__title">${category.category}</h3>
+      ${skillsHTML}
+    `;
+
+    fragment.appendChild(categoryEl);
   });
-}, observerOptions);
 
-// Observe all fade-in elements
-document.querySelectorAll(".fade-element").forEach((el) => {
-  observer.observe(el);
-});
+  elements.skillsGrid.appendChild(fragment);
+}
 
-// ========================================
-// SKILLS ANIMATION
-// ========================================
 function animateSkills() {
-  const skillBars = document.querySelectorAll(".skill__fill");
-  skillBars.forEach((bar) => {
-    const skillLevel = bar.getAttribute("data-skill");
-    bar.style.setProperty("--skill-width", skillLevel + "%");
+  document.querySelectorAll(".skill__fill").forEach((bar) => {
+    const level = bar.dataset.skill;
+    bar.style.setProperty("--skill-width", `${level}%`);
     setTimeout(() => {
       bar.classList.add("skill__fill--animated");
-      bar.style.width = skillLevel + "%";
+      bar.style.width = `${level}%`;
     }, 200);
   });
 }
 
 // ========================================
-// 3D CARD TILT EFFECT
+// 3D CARD TILT
 // ========================================
 function init3DTilt() {
-  const cards = document.querySelectorAll(".project-card");
-
-  cards.forEach((card) => {
-    card.addEventListener("mouseenter", () => {
-      card.classList.add("project-card--tilt-active");
-    });
+  document.querySelectorAll(".project-card").forEach((card) => {
+    card.addEventListener("mouseenter", () =>
+      card.classList.add("project-card--tilt-active")
+    );
 
     card.addEventListener("mousemove", (e) => {
       if (!card.classList.contains("project-card--tilt-active")) return;
@@ -102,10 +113,8 @@ function init3DTilt() {
       const rect = card.getBoundingClientRect();
       const x = e.clientX - rect.left;
       const y = e.clientY - rect.top;
-
       const centerX = rect.width / 2;
       const centerY = rect.height / 2;
-
       const rotateX = ((y - centerY) / centerY) * 10;
       const rotateY = ((centerX - x) / centerX) * 10;
 
@@ -120,140 +129,120 @@ function init3DTilt() {
 }
 
 // ========================================
-// KONAMI CODE EASTER EGG
+// EASTER EGG
 // ========================================
-const konamiCode = [
-  "ArrowUp",
-  "ArrowUp",
-  "ArrowDown",
-  "ArrowDown",
-  "ArrowLeft",
-  "ArrowRight",
-  "ArrowLeft",
-  "ArrowRight",
-  "b",
-  "a",
-];
-let konamiIndex = 0;
+function initEasterEgg() {
+  let konamiIndex = 0;
 
-document.addEventListener("keydown", (e) => {
-  const key = e.key;
-
-  if (key === konamiCode[konamiIndex]) {
-    konamiIndex++;
-
-    if (konamiIndex === konamiCode.length) {
-      activateEasterEgg();
+  document.addEventListener("keydown", (e) => {
+    if (e.key === CONFIG.konamiCode[konamiIndex]) {
+      konamiIndex++;
+      if (konamiIndex === CONFIG.konamiCode.length) {
+        activateEasterEgg();
+        konamiIndex = 0;
+      }
+    } else {
       konamiIndex = 0;
     }
-  } else {
-    konamiIndex = 0;
-  }
-});
+  });
 
-function activateEasterEgg() {
-  const easterEgg = document.getElementById("easter-egg");
-  easterEgg.classList.add("easter-egg--active");
-
-  // Confetti effect (optional - simple version)
-  page.style.animation = "rainbow 2s linear infinite";
-
-  setTimeout(() => {
-    easterEgg.classList.remove("easter-egg--active");
-    page.style.animation = "";
-  }, 5000);
+  elements.easterEgg?.addEventListener("click", closeEasterEgg);
 }
 
-// Close easter egg on click
-document.getElementById("easter-egg").addEventListener("click", function () {
-  this.classList.remove("easter-egg--active");
-  page.style.animation = "";
-});
+function activateEasterEgg() {
+  elements.easterEgg.classList.add("easter-egg--active");
+  setTimeout(closeEasterEgg, CONFIG.easterEggDuration);
+}
+
+function closeEasterEgg() {
+  elements.easterEgg.classList.remove("easter-egg--active");
+}
 
 // ========================================
-// PROJECT DATA
+// PROJECTS
 // ========================================
-const projects = [
-  {
-    title: "News Explorer",
-    description:
-      "React application that fetches and displays recent news articles with pagination and saved items.",
-    tech: ["React", "REST APIs", "CSS"],
-    repo: "https://github.com/jhm323/News-Explorer",
-    image: "assets/news-explorer.png",
-  },
-  {
-    title: "Around the U.S.",
-    description:
-      "Responsive frontend project translating Figma designs into semantic HTML and BEM-based CSS.",
-    tech: ["HTML", "CSS", "Flexbox", "Grid"],
-    repo: "https://github.com/jhm323/se_project_aroundtheus",
-    image: "assets/around-us.png",
-  },
-  {
-    title: "WTWR — Full-Stack Auth App",
-    description:
-      "Full-stack application featuring JWT authentication, protected routes, and role-aware UI.",
-    tech: ["React", "Node.js", "MongoDB", "JWT"],
-    repo: "https://github.com/jhm323/se_project_react",
-    image: "assets/wtwr.png",
-  },
-];
+function renderProjects() {
+  const fragment = document.createDocumentFragment();
 
-// ========================================
-// RENDER PROJECTS
-// ========================================
-const projectGrid = document.getElementById("project-grid");
+  PROJECTS.forEach((project) => {
+    const card = document.createElement("article");
+    card.className = "project-card fade-element";
+    card.innerHTML = `
+      <img class="project-card__image" src="${project.image}" alt="${
+      project.title
+    }" loading="lazy">
+      <div class="project-card__content">
+        <h3 class="project-card__title">${project.title}</h3>
+        <p class="project-card__description">${project.description}</p>
+        <ul class="project-card__tech-list">
+          ${project.tech
+            .map((tech) => `<li class="project-card__tech-item">${tech}</li>`)
+            .join("")}
+        </ul>
+        <a href="${
+          project.repo
+        }" class="project-card__link" target="_blank" rel="noopener noreferrer">
+          View on GitHub →
+        </a>
+      </div>
+    `;
+    fragment.appendChild(card);
+  });
 
-projects.forEach((project) => {
-  const card = document.createElement("article");
-  card.className = "project-card fade-element";
+  elements.projectGrid.appendChild(fragment);
 
-  card.innerHTML = `
-    <img 
-      class="project-card__image"
-      src="${project.image}" 
-      alt="${project.title} screenshot"
-      loading="lazy"
-    />
-    <div class="project-card__content">
-      <h3 class="project-card__title">${project.title}</h3>
-      <p class="project-card__description">${project.description}</p>
-      <ul class="project-card__tech-list">
-        ${project.tech
-          .map((t) => `<li class="project-card__tech-item">${t}</li>`)
-          .join("")}
-      </ul>
-      <a 
-        href="${project.repo}" 
-        target="_blank" 
-        rel="noopener noreferrer"
-        data-project="${project.title}"
-        class="project-card__link"
-      >
-        View on GitHub →
-      </a>
-    </div>
-  `;
+  // Re-observe new cards
+  document.querySelectorAll(".project-card").forEach((el) => {
+    new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting)
+            entry.target.classList.add("fade-element--visible");
+        });
+      },
+      CONFIG.observerOptions
+    ).observe(el);
+  });
 
-  projectGrid.appendChild(card);
-});
-
-// Initialize 3D tilt after projects are rendered
-init3DTilt();
-
-// Re-observe project cards for scroll animation
-document.querySelectorAll(".project-card").forEach((el) => {
-  observer.observe(el);
-});
+  init3DTilt();
+}
 
 // ========================================
-// PRIVACY-SAFE CLICK TRACKING
+// SMOOTH SCROLL
 // ========================================
-document.addEventListener("click", (event) => {
-  const link = event.target.closest(".project-card__link");
-  if (!link) return;
+function initSmoothScroll() {
+  document.querySelectorAll('a[href^="#"]').forEach((link) => {
+    link.addEventListener("click", (e) => {
+      e.preventDefault();
+      const target = document.querySelector(link.getAttribute("href"));
+      target?.scrollIntoView({ behavior: "smooth" });
+    });
+  });
+}
 
-  const projectName = link.dataset.project;
-  console.log(`Project clicked: ${projectName}`);
-});
+// ========================================
+// INITIALIZATION
+// ========================================
+function init() {
+  // Set current year
+  if (elements.currentYear)
+    elements.currentYear.textContent = new Date().getFullYear();
+
+  // Initialize features
+  initTheme();
+  initSmoothScroll();
+  initScrollAnimations();
+  initEasterEgg();
+  renderSkills();
+  renderProjects();
+
+  // Event listeners
+  window.addEventListener("scroll", updateScrollProgress, { passive: true });
+}
+
+// Start app when DOM is ready
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", init);
+} else {
+  init();
+}
