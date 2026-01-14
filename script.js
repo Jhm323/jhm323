@@ -158,6 +158,21 @@ function closeEasterEgg() {
   elements.easterEgg.classList.remove("easter-egg--active");
 }
 
+// Show easter egg clue after 10 seconds
+function showEasterEggClue() {
+  setTimeout(() => {
+    const clue = document.getElementById("easterEggClue");
+    if (clue) {
+      clue.classList.add("easter-egg-clue--visible");
+
+      // Hide after 5 seconds
+      setTimeout(() => {
+        clue.classList.remove("easter-egg-clue--visible");
+      }, 5000);
+    }
+  }, 10000); // Show after 10 seconds
+}
+
 // ========================================
 // PROJECTS
 // ========================================
@@ -193,15 +208,12 @@ function renderProjects() {
 
   // Re-observe new cards
   document.querySelectorAll(".project-card").forEach((el) => {
-    new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting)
-            entry.target.classList.add("fade-element--visible");
-        });
-      },
-      CONFIG.observerOptions
-    ).observe(el);
+    new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting)
+          entry.target.classList.add("fade-element--visible");
+      });
+    }, CONFIG.observerOptions).observe(el);
   });
 
   init3DTilt();
@@ -228,6 +240,12 @@ function init() {
   if (elements.currentYear)
     elements.currentYear.textContent = new Date().getFullYear();
 
+  // Easter egg hint in console
+  console.log(
+    "%c🎮 Psst... Try the Konami Code! ↑↑↓↓←→←→BA",
+    "color: #60a5fa; font-size: 14px; font-weight: bold;"
+  );
+
   // Initialize features
   initTheme();
   initSmoothScroll();
@@ -235,6 +253,7 @@ function init() {
   initEasterEgg();
   renderSkills();
   renderProjects();
+  showEasterEggClue();
 
   // Event listeners
   window.addEventListener("scroll", updateScrollProgress, { passive: true });

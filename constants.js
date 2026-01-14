@@ -42,8 +42,8 @@ const SKILLS = [
     category: "Tools & Other",
     items: [
       { name: "Git", level: 90 },
-      { name: "TypeScript", level: 85 },
-      { name: "Docker", level: 75 },
+      { name: "TypeScript", level: 80 },
+      { name: "Docker", level: 80 },
     ],
   },
 ];

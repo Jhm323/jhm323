@@ -486,6 +486,34 @@
   font-weight: 600;
 }
 
+.easter-egg-clue {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: var(--card);
+  border: 2px solid var(--accent);
+  border-radius: 8px;
+  padding: 12px 20px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+  z-index: 1000;
+  pointer-events: none;
+  box-shadow: var(--shadow);
+}
+
+.easter-egg-clue--visible {
+  opacity: 1;
+  transform: translateY(0);
+  animation: glow 2s ease infinite;
+}
+
+.easter-egg-clue__text {
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 500;
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -509,6 +537,16 @@
   100% {
     transform: scale(1);
     opacity: 1;
+  }
+}
+
+@keyframes glow {
+  0%,
+  100% {
+    box-shadow: 0 0 10px rgba(59, 130, 246, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.6);
   }
 }
 
