@@ -17,8 +17,11 @@ if (yearSpan) {
   yearSpan.textContent = new Date().getFullYear();
 }
 
-// Simple theme toggle (light / dark)
+// Simple theme toggle (dark is default)
 const themeToggle = document.getElementById("theme-toggle");
+
+// Set dark mode as default
+document.body.classList.add("dark");
 
 if (themeToggle) {
   themeToggle.addEventListener("click", () => {
@@ -30,14 +33,6 @@ if (themeToggle) {
 // Project Data (Single Source of Truth)
 // -----------------------------
 const projects = [
-  {
-    title: "WTWR — Full-Stack Auth App",
-    description:
-      "Full-stack application featuring JWT authentication, protected routes, and role-aware UI.",
-    tech: ["React", "Node.js", "MongoDB", "JWT"],
-    repo: "https://github.com/jhm323/se_project_react",
-    image: "assets/wtwr.png",
-  },
   {
     title: "News Explorer",
     description:
@@ -53,6 +48,14 @@ const projects = [
     tech: ["HTML", "CSS", "Flexbox", "Grid"],
     repo: "https://github.com/jhm323/se_project_aroundtheus",
     image: "assets/around-us.png",
+  },
+  {
+    title: "WTWR — Full-Stack Auth App",
+    description:
+      "Full-stack application featuring JWT authentication, protected routes, and role-aware UI.",
+    tech: ["React", "Node.js", "MongoDB", "JWT"],
+    repo: "https://github.com/jhm323/se_project_react",
+    image: "assets/wtwr.png",
   },
 ];
 
