@@ -1,13 +1,9 @@
 # James Holden Moore
 
-![GitHub Repo stars](https://img.shields.io/github/stars/Jhm323/YOUR_REPO_NAME?style=flat-square)
-![GitHub forks](https://img.shields.io/github/forks/Jhm323/YOUR_REPO_NAME?style=flat-square)
-![GitHub last commit](https://img.shields.io/github/last-commit/Jhm323/YOUR_REPO_NAME?style=flat-square)
-![GitHub repo size](https://img.shields.io/github/repo-size/Jhm323/YOUR_REPO_NAME?style=flat-square)
-
-![GitHub last commit](https://img.shields.io/github/last-commit/Jhm323/Jhm323?style=flat-square)
-![GitHub repo size](https://img.shields.io/github/repo-size/Jhm323/Jhm323?style=flat-square)
-![GitHub stars](https://img.shields.io/github/stars/Jhm323/Jhm323?style=flat-square)
+![GitHub stars](https://img.shields.io/github/stars/Jhm323/jhm323?style=flat-square)
+![GitHub forks](https://img.shields.io/github/forks/Jhm323/jhm323?style=flat-square)
+![GitHub last commit](https://img.shields.io/github/last-commit/Jhm323/jhm323?style=flat-square)
+![GitHub repo size](https://img.shields.io/github/repo-size/Jhm323/jhm323?style=flat-square)
 
 ![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-yellow?style=flat-square)
 ![React](https://img.shields.io/badge/React-blue?style=flat-square)
