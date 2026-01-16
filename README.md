@@ -5,14 +5,17 @@
 ![GitHub last commit](https://img.shields.io/github/last-commit/Jhm323/YOUR_REPO_NAME?style=flat-square)
 ![GitHub repo size](https://img.shields.io/github/repo-size/Jhm323/YOUR_REPO_NAME?style=flat-square)
 
+![GitHub last commit](https://img.shields.io/github/last-commit/Jhm323/Jhm323?style=flat-square)
+![GitHub repo size](https://img.shields.io/github/repo-size/Jhm323/Jhm323?style=flat-square)
+![GitHub stars](https://img.shields.io/github/stars/Jhm323/Jhm323?style=flat-square)
+
 ![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-yellow?style=flat-square)
-![React](https://img.shields.io/badge/React-Frontend-blue?style=flat-square)
-![Node.js](https://img.shields.io/badge/Node.js-Backend-green?style=flat-square)
-![REST API](https://img.shields.io/badge/REST-APIs-lightgrey?style=flat-square)
+![React](https://img.shields.io/badge/React-blue?style=flat-square)
+![Node.js](https://img.shields.io/badge/Node.js-green?style=flat-square)
+![REST APIs](https://img.shields.io/badge/REST-APIs-lightgrey?style=flat-square)
 
 ![ESLint](https://img.shields.io/badge/Code%20Style-ESLint-purple?style=flat-square)
 ![Prettier](https://img.shields.io/badge/Formatter-Prettier-pink?style=flat-square)
-![GitHub Pages](https://img.shields.io/badge/Deployed-GitHub%20Pages-black?style=flat-square)
 
 **Software Engineer | Data & Automation Specialist**  
 📍 Charlotte, NC
