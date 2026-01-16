@@ -76,4 +76,20 @@ const PROJECTS = [
     repo: "https://github.com/jhm323/se_project_react",
     image: "assets/wtwr.png",
   },
+  {
+    title: "Triple Peaks Coffee Shop",
+    description:
+      "Responsive coffee shop landing page using BEM methodology, Flexbox layouts, and CSS animations. Features menu, reservation form, and about sections.",
+    tech: ["HTML5", "CSS3", "BEM", "Flexbox"],
+    repo: "https://github.com/jhm323/se_project_coffeeshop",
+    image: "assets/triplePeaks.png",
+  },
+  {
+    title: "CryptoDucks",
+    description:
+      "React application demonstrating frontend authentication and authorization with protected routes, user-specific views, and authentication-aware navigation.",
+    tech: ["React", "Vite", "React Router", "JavaScript"],
+    repo: "https://github.com/jhm323/se_project_react",
+    image: "assets/cryptoDucks.png",
+  },
 ];

@@ -1,7 +1,21 @@
 # James Holden Moore
 
+![GitHub Repo stars](https://img.shields.io/github/stars/Jhm323/YOUR_REPO_NAME?style=flat-square)
+![GitHub forks](https://img.shields.io/github/forks/Jhm323/YOUR_REPO_NAME?style=flat-square)
+![GitHub last commit](https://img.shields.io/github/last-commit/Jhm323/YOUR_REPO_NAME?style=flat-square)
+![GitHub repo size](https://img.shields.io/github/repo-size/Jhm323/YOUR_REPO_NAME?style=flat-square)
+
+![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-yellow?style=flat-square)
+![React](https://img.shields.io/badge/React-Frontend-blue?style=flat-square)
+![Node.js](https://img.shields.io/badge/Node.js-Backend-green?style=flat-square)
+![REST API](https://img.shields.io/badge/REST-APIs-lightgrey?style=flat-square)
+
+![ESLint](https://img.shields.io/badge/Code%20Style-ESLint-purple?style=flat-square)
+![Prettier](https://img.shields.io/badge/Formatter-Prettier-pink?style=flat-square)
+![GitHub Pages](https://img.shields.io/badge/Deployed-GitHub%20Pages-black?style=flat-square)
+
 **Software Engineer | Data & Automation Specialist**  
-📍 Charlotte, NC 
+📍 Charlotte, NC
 📧 james.holden.moore@gmail.com  
 🔗 [LinkedIn](https://www.linkedin.com/in/james-holden-moore) • [GitHub](https://github.com/jhm323)
 
@@ -18,22 +32,26 @@ I enjoy building systems that are **reliable, scalable, and human-centered**, an
 ## 🛠 Technical Skills
 
 **Primary**
+
 - JavaScript (ES6+), React, HTML, CSS
 - Node.js, Express
 - SQL
 
 **Data & Analytics**
+
 - SAS
 - Statistical Analysis
 - Data Visualization
 
 **Databases**
+
 - MongoDB
 - PostgreSQL
 - MySQL
 - NoSQL
 
 **Tools & Platforms**
+
 - Git & GitHub
 - VS Code
 - REST APIs
@@ -41,6 +59,7 @@ I enjoy building systems that are **reliable, scalable, and human-centered**, an
 - ESLint & Prettier
 
 **Additional**
+
 - OpenAI APIs
 - SEO analytics
 - CRM systems
@@ -50,6 +69,7 @@ I enjoy building systems that are **reliable, scalable, and human-centered**, an
 ## 🚀 Featured Projects
 
 ### 🔐 WTWR Backend Server — Secure REST API
+
 **Tech:** Node.js, Express, MongoDB, Mongoose, JWT  
 🔗 [Repository](https://github.com/jhm323/se_project_express)
 
@@ -61,6 +81,7 @@ I enjoy building systems that are **reliable, scalable, and human-centered**, an
 ---
 
 ### 👕 WTWR (What to Wear?) — Full-Stack Authentication App
+
 **Tech:** React, JavaScript, REST APIs, JWT, Node.js, MongoDB  
 🔗 [Repository](https://github.com/jhm323/se_project_react)
 
@@ -72,6 +93,7 @@ I enjoy building systems that are **reliable, scalable, and human-centered**, an
 ---
 
 ### 📰 News Explorer — React News Search Application
+
 **Tech:** React, JavaScript, REST APIs, CSS (BEM)  
 🔗 [Repository](https://github.com/jhm323/News-Explorer)
 
@@ -83,6 +105,7 @@ I enjoy building systems that are **reliable, scalable, and human-centered**, an
 ---
 
 ### 🗺 Around the U.S. — Responsive Frontend Application
+
 **Tech:** HTML, CSS, Flexbox, Grid, BEM  
 🔗 [Repository](https://github.com/jhm323/se_project_aroundtheus)
 
@@ -109,6 +132,7 @@ I enjoy building systems that are **reliable, scalable, and human-centered**, an
 ## 📫 Let’s Connect
 
 I’m interested in software engineering roles focused on:
+
 - Full-stack development
 - Data & analytics platforms
 - Automation & AI-enabled tools
