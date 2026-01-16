@@ -10,7 +10,6 @@ const elements = {
   scrollProgress: document.getElementById("scrollProgress"),
   themeToggle: document.getElementById("themeToggle"),
   currentYear: document.getElementById("currentYear"),
-  skillsGrid: document.getElementById("skillsGrid"),
   projectGrid: document.getElementById("projectGrid"),
   easterEgg: document.getElementById("easterEgg"),
 };
@@ -43,7 +42,6 @@ function initScrollAnimations() {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         entry.target.classList.add("fade-element--visible");
-        if (entry.target.id === "skills") animateSkills();
       }
     });
   }, CONFIG.observerOptions);
@@ -51,51 +49,6 @@ function initScrollAnimations() {
   document
     .querySelectorAll(".fade-element")
     .forEach((el) => observer.observe(el));
-}
-
-// ========================================
-// SKILLS
-// ========================================
-function renderSkills() {
-  const fragment = document.createDocumentFragment();
-
-  SKILLS.forEach((category) => {
-    const categoryEl = document.createElement("div");
-    categoryEl.className = "skill-category";
-
-    const skillsHTML = category.items
-      .map(
-        (skill) => `
-      <div class="skill">
-        <span class="skill__name">${skill.name}</span>
-        <div class="skill__bar">
-          <div class="skill__fill" data-skill="${skill.level}"></div>
-        </div>
-      </div>
-    `
-      )
-      .join("");
-
-    categoryEl.innerHTML = `
-      <h3 class="skill-category__title">${category.category}</h3>
-      ${skillsHTML}
-    `;
-
-    fragment.appendChild(categoryEl);
-  });
-
-  elements.skillsGrid.appendChild(fragment);
-}
-
-function animateSkills() {
-  document.querySelectorAll(".skill__fill").forEach((bar) => {
-    const level = bar.dataset.skill;
-    bar.style.setProperty("--skill-width", `${level}%`);
-    setTimeout(() => {
-      bar.classList.add("skill__fill--animated");
-      bar.style.width = `${level}%`;
-    }, 200);
-  });
 }
 
 // ========================================
@@ -251,7 +204,6 @@ function init() {
   initSmoothScroll();
   initScrollAnimations();
   initEasterEgg();
-  renderSkills();
   renderProjects();
   showEasterEggClue();
 

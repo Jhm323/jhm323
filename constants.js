@@ -19,36 +19,6 @@ const CONFIG = {
 };
 
 // ========================================
-// SKILLS DATA
-// ========================================
-const SKILLS = [
-  {
-    category: "Frontend",
-    items: [
-      { name: "React", level: 90 },
-      { name: "JavaScript", level: 95 },
-      { name: "HTML/CSS", level: 95 },
-    ],
-  },
-  {
-    category: "Backend",
-    items: [
-      { name: "Node.js", level: 85 },
-      { name: "MongoDB", level: 80 },
-      { name: "REST APIs", level: 90 },
-    ],
-  },
-  {
-    category: "Tools & Other",
-    items: [
-      { name: "Git", level: 90 },
-      { name: "TypeScript", level: 80 },
-      { name: "Docker", level: 80 },
-    ],
-  },
-];
-
-// ========================================
 // PROJECTS DATA
 // ========================================
 const PROJECTS = [
