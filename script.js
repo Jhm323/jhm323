@@ -1,7 +1,5 @@
 "use strict";
 
-// CONFIG, SKILLS, and PROJECTS are now in constants.js
-
 // ========================================
 // DOM ELEMENTS
 // ========================================
@@ -12,206 +10,313 @@ const elements = {
   currentYear: document.getElementById("currentYear"),
   projectGrid: document.getElementById("projectGrid"),
   easterEgg: document.getElementById("easterEgg"),
+  easterEggClue: document.getElementById("easterEggClue"),
 };
 
 // ========================================
 // THEME
 // ========================================
-function initTheme() {
-  elements.themeToggle?.addEventListener("click", () => {
+const Theme = {
+  init() {
+    if (!elements.themeToggle || !elements.page) return;
+
+    this.loadSavedTheme();
+    elements.themeToggle.addEventListener("click", () => this.toggle());
+  },
+
+  toggle() {
     elements.page.classList.toggle("page--dark");
-  });
-}
+    this.saveTheme();
+  },
+
+  saveTheme() {
+    const isDark = elements.page.classList.contains("page--dark");
+    localStorage.setItem("theme", isDark ? "dark" : "light");
+  },
+
+  loadSavedTheme() {
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "light") {
+      elements.page.classList.remove("page--dark");
+    } else if (savedTheme === "dark") {
+      elements.page.classList.add("page--dark");
+    }
+  },
+};
 
 // ========================================
 // SCROLL PROGRESS
 // ========================================
-function updateScrollProgress() {
-  const scrolled =
-    (window.scrollY /
-      (document.documentElement.scrollHeight - window.innerHeight)) *
-    100;
-  elements.scrollProgress.style.width = `${scrolled}%`;
-}
+const ScrollProgress = {
+  update() {
+    if (!elements.scrollProgress) return;
+
+    const scrolled =
+      (window.scrollY /
+        (document.documentElement.scrollHeight - window.innerHeight)) *
+      100;
+    elements.scrollProgress.style.width = `${Math.min(scrolled, 100)}%`;
+  },
+
+  init() {
+    window.addEventListener("scroll", () => this.update(), { passive: true });
+  },
+};
 
 // ========================================
 // SCROLL ANIMATIONS
 // ========================================
-function initScrollAnimations() {
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("fade-element--visible");
-      }
-    });
-  }, CONFIG.observerOptions);
+const ScrollAnimations = {
+  observer: null,
 
-  document
-    .querySelectorAll(".fade-element")
-    .forEach((el) => observer.observe(el));
-}
+  init() {
+    this.observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("fade-element--visible");
+            this.observer.unobserve(entry.target);
+          }
+        });
+      },
+      CONFIG.observerOptions
+    );
+
+    document
+      .querySelectorAll(".fade-element")
+      .forEach((el) => this.observer.observe(el));
+  },
+
+  observeElement(element) {
+    if (this.observer && element) {
+      this.observer.observe(element);
+    }
+  },
+};
 
 // ========================================
 // 3D CARD TILT
 // ========================================
-function init3DTilt() {
-  document.querySelectorAll(".project-card").forEach((card) => {
-    card.addEventListener("mouseenter", () =>
-      card.classList.add("project-card--tilt-active")
-    );
+const CardTilt = {
+  cards: [],
 
-    card.addEventListener("mousemove", (e) => {
-      if (!card.classList.contains("project-card--tilt-active")) return;
+  init() {
+    this.cards = document.querySelectorAll(".project-card");
+    this.cards.forEach((card) => this.attachListeners(card));
+  },
 
-      const rect = card.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      const centerX = rect.width / 2;
-      const centerY = rect.height / 2;
-      const rotateX = ((y - centerY) / centerY) * 10;
-      const rotateY = ((centerX - x) / centerX) * 10;
+  attachListeners(card) {
+    card.addEventListener("mouseenter", () => this.handleMouseEnter(card));
+    card.addEventListener("mousemove", (e) => this.handleMouseMove(card, e));
+    card.addEventListener("mouseleave", () => this.handleMouseLeave(card));
+  },
 
+  handleMouseEnter(card) {
+    card.classList.add("project-card--tilt-active");
+  },
+
+  handleMouseMove(card, e) {
+    if (!card.classList.contains("project-card--tilt-active")) return;
+
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    const rotateX = ((y - centerY) / centerY) * 10;
+    const rotateY = ((centerX - x) / centerX) * 10;
+
+    requestAnimationFrame(() => {
       card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
     });
+  },
 
-    card.addEventListener("mouseleave", () => {
-      card.classList.remove("project-card--tilt-active");
+  handleMouseLeave(card) {
+    card.classList.remove("project-card--tilt-active");
+    requestAnimationFrame(() => {
       card.style.transform = "";
     });
-  });
-}
+  },
+};
 
 // ========================================
 // EASTER EGG
 // ========================================
-function initEasterEgg() {
-  let konamiIndex = 0;
+const EasterEgg = {
+  konamiIndex: 0,
+  clueTimeout: null,
+  hideTimeout: null,
 
-  document.addEventListener("keydown", (e) => {
-    if (e.key === CONFIG.konamiCode[konamiIndex]) {
-      konamiIndex++;
-      if (konamiIndex === CONFIG.konamiCode.length) {
-        activateEasterEgg();
-        konamiIndex = 0;
+  init() {
+    if (!elements.easterEgg) return;
+
+    document.addEventListener("keydown", (e) => this.handleKeyPress(e));
+    elements.easterEgg.addEventListener("click", () => this.close());
+
+    this.showClue();
+  },
+
+  handleKeyPress(e) {
+    if (e.key === CONFIG.konamiCode[this.konamiIndex]) {
+      this.konamiIndex++;
+      if (this.konamiIndex === CONFIG.konamiCode.length) {
+        this.activate();
+        this.konamiIndex = 0;
       }
     } else {
-      konamiIndex = 0;
+      this.konamiIndex = 0;
     }
-  });
+  },
 
-  elements.easterEgg?.addEventListener("click", closeEasterEgg);
-}
+  activate() {
+    elements.easterEgg.classList.add("easter-egg--active");
+    this.hideTimeout = setTimeout(() => this.close(), CONFIG.easterEggDuration);
+  },
 
-function activateEasterEgg() {
-  elements.easterEgg.classList.add("easter-egg--active");
-  setTimeout(closeEasterEgg, CONFIG.easterEggDuration);
-}
+  close() {
+    elements.easterEgg.classList.remove("easter-egg--active");
+    if (this.hideTimeout) {
+      clearTimeout(this.hideTimeout);
+    }
+  },
 
-function closeEasterEgg() {
-  elements.easterEgg.classList.remove("easter-egg--active");
-}
+  showClue() {
+    if (!elements.easterEggClue) return;
 
-// Show easter egg clue after 10 seconds
-function showEasterEggClue() {
-  setTimeout(() => {
-    const clue = document.getElementById("easterEggClue");
-    if (clue) {
-      clue.classList.add("easter-egg-clue--visible");
+    this.clueTimeout = setTimeout(() => {
+      elements.easterEggClue.classList.add("easter-egg-clue--visible");
 
-      // Hide after 5 seconds
       setTimeout(() => {
-        clue.classList.remove("easter-egg-clue--visible");
+        elements.easterEggClue.classList.remove("easter-egg-clue--visible");
       }, 5000);
-    }
-  }, 10000); // Show after 10 seconds
-}
+    }, 10000);
+  },
+};
 
 // ========================================
 // PROJECTS
 // ========================================
-function renderProjects() {
-  const fragment = document.createDocumentFragment();
-
-  PROJECTS.forEach((project) => {
+const Projects = {
+  createProjectCard(project) {
     const card = document.createElement("article");
     card.className = "project-card fade-element";
+
     card.innerHTML = `
-      <img class="project-card__image" src="${project.image}" alt="${
-      project.title
-    }" loading="lazy">
+      <img class="project-card__image" 
+           src="${this.escapeHtml(project.image)}" 
+           alt="${this.escapeHtml(project.title)}" 
+           loading="lazy">
       <div class="project-card__content">
-        <h3 class="project-card__title">${project.title}</h3>
-        <p class="project-card__description">${project.description}</p>
+        <h3 class="project-card__title">${this.escapeHtml(project.title)}</h3>
+        <p class="project-card__description">${this.escapeHtml(project.description)}</p>
         <ul class="project-card__tech-list">
           ${project.tech
-            .map((tech) => `<li class="project-card__tech-item">${tech}</li>`)
+            .map(
+              (tech) =>
+                `<li class="project-card__tech-item">${this.escapeHtml(tech)}</li>`
+            )
             .join("")}
         </ul>
-        <a href="${
-          project.repo
-        }" class="project-card__link" target="_blank" rel="noopener noreferrer">
+        <a href="${this.escapeHtml(project.repo)}" 
+           class="project-card__link" 
+           target="_blank" 
+           rel="noopener noreferrer"
+           aria-label="View ${this.escapeHtml(project.title)} on GitHub">
           View on GitHub →
         </a>
       </div>
     `;
-    fragment.appendChild(card);
-  });
 
-  elements.projectGrid.appendChild(fragment);
+    return card;
+  },
 
-  // Re-observe new cards
-  document.querySelectorAll(".project-card").forEach((el) => {
-    new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting)
-          entry.target.classList.add("fade-element--visible");
-      });
-    }, CONFIG.observerOptions).observe(el);
-  });
+  escapeHtml(text) {
+    const div = document.createElement("div");
+    div.textContent = text;
+    return div.innerHTML;
+  },
 
-  init3DTilt();
-}
+  render() {
+    if (!elements.projectGrid || !PROJECTS) return;
+
+    const fragment = document.createDocumentFragment();
+
+    PROJECTS.forEach((project) => {
+      const card = this.createProjectCard(project);
+      fragment.appendChild(card);
+      ScrollAnimations.observeElement(card);
+    });
+
+    elements.projectGrid.appendChild(fragment);
+    CardTilt.init();
+  },
+};
 
 // ========================================
 // SMOOTH SCROLL
 // ========================================
-function initSmoothScroll() {
-  document.querySelectorAll('a[href^="#"]').forEach((link) => {
-    link.addEventListener("click", (e) => {
-      e.preventDefault();
-      const target = document.querySelector(link.getAttribute("href"));
-      target?.scrollIntoView({ behavior: "smooth" });
+const SmoothScroll = {
+  init() {
+    document.querySelectorAll('a[href^="#"]').forEach((link) => {
+      link.addEventListener("click", (e) => this.handleClick(e, link));
     });
-  });
-}
+  },
+
+  handleClick(e, link) {
+    e.preventDefault();
+    const href = link.getAttribute("href");
+    const target = document.querySelector(href);
+
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+
+      if (target.hasAttribute("tabindex")) {
+        target.focus();
+      }
+    }
+  },
+};
+
+// ========================================
+// UTILITIES
+// ========================================
+const Utils = {
+  setCurrentYear() {
+    if (elements.currentYear) {
+      elements.currentYear.textContent = new Date().getFullYear();
+    }
+  },
+
+  logEasterEggHint() {
+    console.log(
+      "%c🎮 Psst... Try the Konami Code! ↑↑↓↓←→←→BA",
+      "color: #60a5fa; font-size: 14px; font-weight: bold;"
+    );
+  },
+};
 
 // ========================================
 // INITIALIZATION
 // ========================================
 function init() {
-  // Set current year
-  if (elements.currentYear)
-    elements.currentYear.textContent = new Date().getFullYear();
+  try {
+    Utils.setCurrentYear();
+    Utils.logEasterEggHint();
 
-  // Easter egg hint in console
-  console.log(
-    "%c🎮 Psst... Try the Konami Code! ↑↑↓↓←→←→BA",
-    "color: #60a5fa; font-size: 14px; font-weight: bold;"
-  );
-
-  // Initialize features
-  initTheme();
-  initSmoothScroll();
-  initScrollAnimations();
-  initEasterEgg();
-  renderProjects();
-  showEasterEggClue();
-
-  // Event listeners
-  window.addEventListener("scroll", updateScrollProgress, { passive: true });
+    Theme.init();
+    SmoothScroll.init();
+    ScrollAnimations.init();
+    ScrollProgress.init();
+    EasterEgg.init();
+    Projects.render();
+  } catch (error) {
+    console.error("Initialization error:", error);
+  }
 }
 
-// Start app when DOM is ready
+// ========================================
+// START APPLICATION
+// ========================================
 if (document.readyState === "loading") {
   document.addEventListener("DOMContentLoaded", init);
 } else {
