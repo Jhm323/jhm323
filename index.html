@@ -8,14 +8,12 @@
       content="James Holden Moore - Software Engineer with 5+ years of experience in full-stack development, data-driven applications, and AI tools."
     />
     <title>James Holden Moore | Software Engineer</title>
-    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link rel="icon" href="favicon.ico" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body class="page page--dark">
-    <!-- Scroll Progress Indicator -->
     <div class="scroll-progress" id="scrollProgress"></div>
 
-    <!-- Header -->
     <header class="header">
       <div class="header__image"></div>
       <div class="header__content">
@@ -45,9 +43,7 @@
       </div>
     </header>
 
-    <!-- Main Content -->
     <main class="main">
-      <!-- About Section -->
       <section class="about fade-element" aria-labelledby="aboutTitle">
         <h2 class="about__title" id="aboutTitle">About</h2>
         <p class="about__text">
@@ -56,12 +52,7 @@
         </p>
       </section>
 
-      <!-- GitHub Section -->
-      <section
-        class="github fade-element"
-        id="github"
-        aria-labelledby="githubTitle"
-      >
+      <section class="github fade-element" aria-labelledby="githubTitle">
         <h2 class="github__title" id="githubTitle">GitHub Activity</h2>
         <a
           href="https://github.com/jhm323"
@@ -90,25 +81,18 @@
         </a>
       </section>
 
-      <!-- Projects Section -->
-      <section
-        class="projects fade-element"
-        id="projects"
-        aria-labelledby="projectsTitle"
-      >
+      <section class="projects fade-element" aria-labelledby="projectsTitle">
         <h2 class="projects__title" id="projectsTitle">Projects</h2>
         <div class="projects__grid" id="projectGrid"></div>
       </section>
     </main>
 
-    <!-- Footer -->
     <footer class="footer">
       <p class="footer__text">
         © <span id="currentYear"></span> James Holden Moore
       </p>
     </footer>
 
-    <!-- Easter Egg -->
     <div
       class="easter-egg"
       id="easterEgg"
@@ -124,12 +108,8 @@
       </div>
     </div>
 
-    <!-- Easter Egg Clue -->
-    <div class="easter-egg-clue" id="easterEggClue">
-      <span class="easter-egg-clue__text">🎮 Try the Konami Code</span>
-    </div>
+    <div class="easter-egg-clue" id="easterEggClue">🎮 Try the Konami Code</div>
 
-    <!-- Load constants first, then main script -->
     <script src="constants.js"></script>
     <script src="script.js"></script>
   </body>
