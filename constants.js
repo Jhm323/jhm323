@@ -59,7 +59,7 @@ const PROJECTS = [
     description:
       "React application demonstrating frontend authentication and authorization with protected routes, user-specific views, and authentication-aware navigation.",
     tech: ["React", "Vite", "React Router", "JavaScript"],
-    repo: "https://github.com/jhm323/se_project_react",
+    repo: "https://github.com/Jhm323/crypto-ducks",
     image: "assets/cryptoDucks.png",
   },
 ];
