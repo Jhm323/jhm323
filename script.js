@@ -32,7 +32,7 @@ function updateScrollProgress() {
     (window.scrollY /
       (document.documentElement.scrollHeight - window.innerHeight)) *
       100,
-    100
+    100,
   );
   elements.scrollProgress.style.width = `${scrolled}%`;
 }
@@ -61,7 +61,7 @@ function initScrollAnimations() {
 function init3DTilt() {
   document.querySelectorAll(".project-card").forEach((card) => {
     card.addEventListener("mouseenter", () =>
-      card.classList.add("project-card--tilt-active")
+      card.classList.add("project-card--tilt-active"),
     );
 
     card.addEventListener("mousemove", (e) => {
@@ -146,8 +146,8 @@ function renderProjects() {
     card.className = "project-card fade-element";
     card.innerHTML = `
       <img class="project-card__image" src="${project.image}" alt="${
-      project.title
-    }" loading="lazy">
+        project.title
+      }" loading="lazy">
       <div class="project-card__content">
         <h3 class="project-card__title">${project.title}</h3>
         <p class="project-card__description">${project.description}</p>
@@ -198,6 +198,45 @@ function initSmoothScroll() {
 }
 
 // ========================================
+// MOBILE KEYBOARD TRIGGER
+// ========================================
+function openMobileKeyboard() {
+  // Create or find an existing input element
+  let input = document.getElementById("mobileKeyboardInput");
+
+  if (!input) {
+    input = document.createElement("input");
+    input.id = "mobileKeyboardInput";
+    input.type = "text";
+    input.style.position = "absolute";
+    input.style.opacity = "0";
+    input.style.pointerEvents = "none";
+    input.style.height = "0";
+    document.body.appendChild(input);
+  }
+
+  // Focus the input to trigger keyboard
+  input.focus();
+}
+
+// Optional: Create a button to trigger this
+function initMobileKeyboardButton() {
+  const button = document.createElement("button");
+  button.textContent = "⌨️ Open Keyboard";
+  button.className = "mobile-keyboard-btn";
+  button.onclick = openMobileKeyboard;
+
+  // Only show on mobile devices
+  if (
+    /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+      navigator.userAgent,
+    )
+  ) {
+    document.body.appendChild(button);
+  }
+}
+
+// ========================================
 // INITIALIZATION
 // ========================================
 function init() {
@@ -207,7 +246,7 @@ function init() {
 
   console.log(
     "%c🎮 Psst... Try the Konami Code! ↑↑↓↓←→←→BA",
-    "color: #60a5fa; font-size: 14px; font-weight: bold;"
+    "color: #60a5fa; font-size: 14px; font-weight: bold;",
   );
 
   initTheme();
@@ -227,3 +266,5 @@ if (document.readyState === "loading") {
 } else {
   init();
 }
+
+initMobileKeyboardButton();

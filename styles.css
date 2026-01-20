@@ -50,7 +50,11 @@
 .page {
   background: var(--bg);
   color: var(--text);
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    sans-serif;
   line-height: 1.6;
   min-height: 100vh;
 }
@@ -104,7 +108,9 @@
 .fade-element {
   opacity: 0;
   transform: translateY(30px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
 }
 
 .fade-element--visible {
@@ -132,22 +138,16 @@
 .header__image {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-      135deg,
-      rgba(79, 70, 229, 0.4),
-      rgba(99, 102, 241, 0.3)
-    ),
+  background:
+    linear-gradient(135deg, rgba(79, 70, 229, 0.4), rgba(99, 102, 241, 0.3)),
     url(assets/header-bg_dark.png) center/cover no-repeat;
   transition: background 0.4s ease;
   z-index: 0;
 }
 
 .page:not(.page--dark) .header__image {
-  background: linear-gradient(
-      135deg,
-      rgba(37, 99, 235, 0.3),
-      rgba(59, 130, 246, 0.2)
-    ),
+  background:
+    linear-gradient(135deg, rgba(37, 99, 235, 0.3), rgba(59, 130, 246, 0.2)),
     url(assets/header-bg.png) center/cover no-repeat;
 }
 
@@ -228,6 +228,26 @@
   outline-offset: 4px;
 }
 
+.mobile-keyboard-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 12px 20px;
+  background: var(--accent);
+  color: var(--white);
+  border: none;
+  border-radius: var(--border-radius-sm);
+  font-size: 16px;
+  cursor: pointer;
+  z-index: 1000;
+  transition: all var(--transition);
+}
+
+.mobile-keyboard-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
 /* ========================================
    MAIN CONTENT
    ======================================== */
@@ -292,7 +312,9 @@
   border-radius: var(--border-radius-md);
   padding: var(--spacing-xl);
   text-align: center;
-  transition: transform var(--transition), box-shadow var(--transition);
+  transition:
+    transform var(--transition),
+    box-shadow var(--transition);
   cursor: pointer;
 }
 
@@ -341,7 +363,9 @@
   overflow: hidden;
   box-shadow: var(--shadow);
   background: var(--card);
-  transition: transform var(--transition), box-shadow var(--transition);
+  transition:
+    transform var(--transition),
+    box-shadow var(--transition);
   display: flex;
   flex-direction: column;
   transform-style: preserve-3d;
