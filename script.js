@@ -219,21 +219,15 @@ function openMobileKeyboard() {
   input.focus();
 }
 
-// Optional: Create a button to trigger this
+// Keyboard on Mobile Windows
 function initMobileKeyboardButton() {
   const button = document.createElement("button");
   button.textContent = "⌨️ Open Keyboard";
   button.className = "mobile-keyboard-btn";
   button.onclick = openMobileKeyboard;
 
-  // Only show on mobile devices
-  if (
-    /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-      navigator.userAgent,
-    )
-  ) {
-    document.body.appendChild(button);
-  }
+  // Show on all devices for testing
+  document.body.appendChild(button);
 }
 
 // ========================================
@@ -254,6 +248,7 @@ function init() {
   initScrollAnimations();
   initEasterEgg();
   renderProjects();
+  initMobileKeyboardButton();
 
   window.addEventListener("scroll", updateScrollProgress, { passive: true });
 }
@@ -266,5 +261,3 @@ if (document.readyState === "loading") {
 } else {
   init();
 }
-
-initMobileKeyboardButton();
