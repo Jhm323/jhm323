@@ -686,6 +686,58 @@
   .project-card:nth-child(1) .project-card__title {
     font-size: 20px;
   }
+
+  .virtual-keypad {
+    display: flex;
+  }
+
+  .virtual-keypad__arrows {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .keypad-row {
+    display: flex;
+    gap: 4px;
+  }
+
+  .virtual-keypad__actions {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    justify-content: center;
+    margin-left: var(--spacing-sm);
+  }
+
+  .keypad-btn {
+    width: 50px;
+    height: 50px;
+    background: var(--accent);
+    color: var(--white);
+    border: 2px solid var(--accent-light);
+    border-radius: var(--border-radius-sm);
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+  }
+
+  .keypad-btn:active,
+  .keypad-btn--pressed {
+    transform: scale(0.9);
+    background: var(--accent-light);
+  }
+
+  .keypad-btn--action {
+    font-size: 18px;
+    font-family: monospace;
+  }
 }
 
 @media (max-width: 570px) {
@@ -717,4 +769,21 @@
   .header__title {
     max-width: 60vw;
   }
+}
+
+/* ========================================
+   VIRTUAL KEYPAD (Mobile Konami Code)
+   ======================================== */
+.virtual-keypad {
+  position: fixed;
+  bottom: 80px;
+  left: 20px;
+  display: none;
+  gap: var(--spacing-md);
+  z-index: 1000;
+  background: var(--card);
+  padding: var(--spacing-md);
+  border-radius: var(--border-radius-md);
+  border: 2px solid var(--accent);
+  box-shadow: var(--shadow);
 }

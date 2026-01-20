@@ -97,8 +97,28 @@ function initEasterEgg() {
 
   let konamiIndex = 0;
 
+  // Handle keyboard input (desktop)
   document.addEventListener("keydown", (e) => {
-    if (e.key === CONFIG.konamiCode[konamiIndex]) {
+    handleKonamiInput(e.key);
+  });
+
+  // Handle virtual keypad input (mobile)
+  document.querySelectorAll(".keypad-btn").forEach((btn) => {
+    btn.addEventListener("click", function () {
+      const key = this.dataset.key;
+      handleKonamiInput(key);
+
+      // Visual feedback
+      this.classList.add("keypad-btn--pressed");
+      setTimeout(() => {
+        this.classList.remove("keypad-btn--pressed");
+      }, 200);
+    });
+  });
+
+  // Unified input handler
+  function handleKonamiInput(key) {
+    if (key === CONFIG.konamiCode[konamiIndex]) {
       konamiIndex++;
       if (konamiIndex === CONFIG.konamiCode.length) {
         activateEasterEgg();
@@ -107,7 +127,7 @@ function initEasterEgg() {
     } else {
       konamiIndex = 0;
     }
-  });
+  }
 
   elements.easterEgg.addEventListener("click", closeEasterEgg);
   showEasterEggClue();
