@@ -164,7 +164,7 @@
 .header__content {
   position: relative;
   z-index: 1;
-  padding: var(--spacing-xl); /* Add padding here for internal spacing */
+  padding: var(--spacing-xl);
   background: rgba(0, 0, 0, 0.4);
   border-radius: var(--border-radius-md);
   backdrop-filter: blur(2px);
@@ -245,7 +245,7 @@
 .mobile-keyboard-btn {
   position: fixed;
   bottom: 20px;
-  left: 20px; /* Changed from right: 20px */
+  left: 20px;
   padding: 12px 20px;
   background: var(--card);
   color: var(--text);
@@ -584,6 +584,72 @@
 }
 
 /* ========================================
+   VIRTUAL KEYPAD (Mobile Konami Code)
+   ======================================== */
+.virtual-keypad {
+  position: fixed;
+  bottom: 80px;
+  left: 20px;
+  display: none;
+  gap: var(--spacing-md);
+  z-index: 1000;
+  background: rgba(30, 41, 59, 0.7); /* dark glass */
+  backdrop-filter: blur(8px);
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius-lg);
+  border: 1.5px solid rgba(96, 165, 250, 0.25); /* accent-light */
+  box-shadow:
+    0 8px 32px 0 rgba(16, 24, 40, 0.25),
+    0 1.5px 8px 0 rgba(59, 130, 246, 0.1);
+  transition:
+    box-shadow 0.3s,
+    background 0.3s;
+}
+
+.keypad-btn {
+  width: 56px;
+  height: 56px;
+  background: linear-gradient(
+    135deg,
+    var(--accent) 60%,
+    var(--accent-light) 100%
+  );
+  color: var(--white);
+  border: none;
+  border-radius: var(--border-radius-md);
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.15);
+  transition:
+    background 0.2s,
+    box-shadow 0.2s,
+    transform 0.1s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  outline: none;
+}
+
+.keypad-btn:active,
+.keypad-btn--pressed {
+  background: linear-gradient(
+    135deg,
+    var(--accent-light) 80%,
+    var(--accent) 100%
+  );
+  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.18);
+  transform: scale(0.95);
+}
+
+.keypad-btn--action {
+  font-size: 22px;
+  font-family: monospace;
+  letter-spacing: 1px;
+}
+
+/* ========================================
    ANIMATIONS
    ======================================== */
 @keyframes fadeIn {
@@ -766,21 +832,4 @@
   .header__title {
     max-width: 60vw;
   }
-}
-
-/* ========================================
-   VIRTUAL KEYPAD (Mobile Konami Code)
-   ======================================== */
-.virtual-keypad {
-  position: fixed;
-  bottom: 80px;
-  left: 20px;
-  display: none;
-  gap: var(--spacing-md);
-  z-index: 1000;
-  background: var(--card);
-  padding: var(--spacing-md);
-  border-radius: var(--border-radius-md);
-  border: 2px solid var(--accent);
-  box-shadow: var(--shadow);
 }
