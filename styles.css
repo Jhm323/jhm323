@@ -487,6 +487,12 @@
   padding: var(--spacing-md) var(--spacing-lg);
 }
 
+.page:not(.page--dark) .footer {
+  background: var(--white);
+  color: var(--black);
+  box-shadow: 0 -2px 12px rgba(37, 99, 235, 0.08);
+}
+
 .footer__text {
   flex: 1;
   font-size: 14px;

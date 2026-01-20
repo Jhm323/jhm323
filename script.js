@@ -218,45 +218,6 @@ function initSmoothScroll() {
 }
 
 // ========================================
-// MOBILE KEYBOARD TRIGGER
-// ========================================
-function openMobileKeyboard() {
-  // Create or find an existing input element
-  let input = document.getElementById("mobileKeyboardInput");
-
-  if (!input) {
-    input = document.createElement("input");
-    input.id = "mobileKeyboardInput";
-    input.type = "text";
-    input.style.position = "absolute";
-    input.style.opacity = "0";
-    input.style.pointerEvents = "none";
-    input.style.height = "0";
-    document.body.appendChild(input);
-  }
-
-  // Focus the input to trigger keyboard
-  input.focus();
-}
-
-// Keyboard on Mobile devices
-function initMobileKeyboardButton() {
-  const button = document.createElement("button");
-  button.textContent = "⌨️ Open Keyboard";
-  button.className = "mobile-keyboard-btn";
-  button.onclick = openMobileKeyboard;
-
-  // Only show on mobile devices
-  if (
-    /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-      navigator.userAgent,
-    )
-  ) {
-    document.body.appendChild(button);
-  }
-}
-
-// ========================================
 // INITIALIZATION
 // ========================================
 function init() {
@@ -274,7 +235,6 @@ function init() {
   initScrollAnimations();
   initEasterEgg();
   renderProjects();
-  initMobileKeyboardButton();
 
   window.addEventListener("scroll", updateScrollProgress, { passive: true });
 }
