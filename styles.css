@@ -231,21 +231,23 @@
 .mobile-keyboard-btn {
   position: fixed;
   bottom: 20px;
-  right: 20px;
+  left: 20px; /* Changed from right: 20px */
   padding: 12px 20px;
-  background: var(--accent);
-  color: var(--white);
-  border: none;
+  background: var(--card);
+  color: var(--text);
+  border: 2px solid var(--accent);
   border-radius: var(--border-radius-sm);
   font-size: 16px;
+  font-weight: 500;
   cursor: pointer;
   z-index: 1000;
-  transition: all var(--transition);
+  box-shadow: var(--shadow);
+  transition: all 0.3s ease;
 }
 
 .mobile-keyboard-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+  animation: glow 2s ease infinite;
 }
 
 /* ========================================

@@ -219,15 +219,21 @@ function openMobileKeyboard() {
   input.focus();
 }
 
-// Keyboard on Mobile Windows
+// Keyboard on Mobile devices
 function initMobileKeyboardButton() {
   const button = document.createElement("button");
   button.textContent = "⌨️ Open Keyboard";
   button.className = "mobile-keyboard-btn";
   button.onclick = openMobileKeyboard;
 
-  // Show on all devices for testing
-  document.body.appendChild(button);
+  // Only show on mobile devices
+  if (
+    /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+      navigator.userAgent,
+    )
+  ) {
+    document.body.appendChild(button);
+  }
 }
 
 // ========================================
