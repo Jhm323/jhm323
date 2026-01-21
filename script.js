@@ -127,8 +127,10 @@ function initEasterEgg() {
 
 function activateEasterEgg() {
   elements.easterEgg.classList.add("easter-egg--active");
-  setTimeout(playLegoJHMAnimation, 2000); // JHM after 2s
-  setTimeout(closeEasterEgg, 10000); // Close after 8s
+  // JHM after 2s
+  setTimeout(playLegoJHMAnimation, 2000);
+  // Close after 8s
+  setTimeout(closeEasterEgg, 10000);
 }
 
 function closeEasterEgg() {
@@ -194,7 +196,7 @@ function initSmoothScroll() {
 }
 
 // ========================================
-// Lego JHM Animation
+// JHM Animation
 // ========================================
 function animateBlocks(blocks, from, to, duration, delayStep, easing) {
   blocks.forEach((block, i) => {
@@ -261,7 +263,7 @@ function playLegoJHMAnimation() {
     );
   }, 5000);
 
-  // Animate out after 6s (redundant, but preserves original timing)
+  // Animate out after 6s
   setTimeout(() => {
     animateBlocks(
       blocks,
@@ -271,7 +273,7 @@ function playLegoJHMAnimation() {
       40,
       "ease-in",
     );
-  }, 6000);
+  }, 7500);
 }
 
 // ========================================
