@@ -62,25 +62,25 @@ function initScrollAnimations() {
 }
 
 // ========================================
-// PROJECT-CARD ANIMATION
+// PROJECT-CARD UTILS
 // ========================================
+function setHover(card, on) {
+  card.classList.toggle("project-card--hover", on);
+}
+
+// initialize float + hover behavior; also adds small randomized delay for natural motion
 function initFloatHover() {
   document.querySelectorAll(".project-card").forEach((card) => {
     card.classList.add("project-card--float");
     card.style.animationDelay = `${Math.random() * 2}s`;
 
-    card.addEventListener("mouseenter", () =>
-      card.classList.add("project-card--hover"),
-    );
-    card.addEventListener("mouseleave", () =>
-      card.classList.remove("project-card--hover"),
-    );
-    card.addEventListener("focus", () =>
-      card.classList.add("project-card--hover"),
-    );
-    card.addEventListener("blur", () =>
-      card.classList.remove("project-card--hover"),
-    );
+    const enter = () => setHover(card, true);
+    const leave = () => setHover(card, false);
+
+    card.addEventListener("mouseenter", enter);
+    card.addEventListener("focus", enter);
+    card.addEventListener("mouseleave", leave);
+    card.addEventListener("blur", leave);
   });
 }
 
@@ -118,9 +118,7 @@ function initEasterEgg() {
 
 function activateEasterEgg() {
   elements.easterEgg.classList.add("easter-egg--active");
-  // JHM after 2s
   setTimeout(playLegoJHMAnimation, 2000);
-  // Close after 8s
   setTimeout(closeEasterEgg, 10000);
 }
 
@@ -148,6 +146,8 @@ function renderProjects() {
   PROJECTS.forEach((project) => {
     const card = document.createElement("article");
     card.className = "project-card fade-element";
+    card.tabIndex = 0;
+
     card.innerHTML = `
   <img
     class="project-card__image"
@@ -194,6 +194,7 @@ function renderProjects() {
   });
 
   elements.projectGrid.appendChild(fragment);
+
   fadeInOnScroll(
     ".project-card",
     "fade-element--visible",
@@ -261,7 +262,6 @@ function playLegoJHMAnimation() {
     });
   });
 
-  // Animate in
   animateBlocks(
     blocks,
     "translateX(-120vw) rotate(-30deg)",
@@ -271,7 +271,6 @@ function playLegoJHMAnimation() {
     "cubic-bezier(.68,-0.55,.27,1.55)",
   );
 
-  // Disintegrate after 5s
   setTimeout(() => {
     animateBlocks(
       blocks,
@@ -283,7 +282,6 @@ function playLegoJHMAnimation() {
     );
   }, 5000);
 
-  // Animate out after 6s
   setTimeout(() => {
     animateBlocks(
       blocks,
