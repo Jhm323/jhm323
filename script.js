@@ -62,34 +62,25 @@ function initScrollAnimations() {
 }
 
 // ========================================
-// 3D CARD TILT
+// PROJECT-CARD ANIMATION
 // ========================================
-function init3DTilt() {
+function initFloatHover() {
   document.querySelectorAll(".project-card").forEach((card) => {
+    card.classList.add("project-card--float");
+    card.style.animationDelay = `${Math.random() * 2}s`;
+
     card.addEventListener("mouseenter", () =>
-      card.classList.add("project-card--tilt-active"),
+      card.classList.add("project-card--hover"),
     );
-
-    card.addEventListener("mousemove", (e) => {
-      if (!card.classList.contains("project-card--tilt-active")) return;
-      const rect = card.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      const centerX = rect.width / 2;
-      const centerY = rect.height / 2;
-      const rotateX = ((y - centerY) / centerY) * 10;
-      const rotateY = ((centerX - x) / centerX) * 10;
-      requestAnimationFrame(() => {
-        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
-      });
-    });
-
-    card.addEventListener("mouseleave", () => {
-      card.classList.remove("project-card--tilt-active");
-      requestAnimationFrame(() => {
-        card.style.transform = "";
-      });
-    });
+    card.addEventListener("mouseleave", () =>
+      card.classList.remove("project-card--hover"),
+    );
+    card.addEventListener("focus", () =>
+      card.classList.add("project-card--hover"),
+    );
+    card.addEventListener("blur", () =>
+      card.classList.remove("project-card--hover"),
+    );
   });
 }
 
@@ -157,19 +148,6 @@ function renderProjects() {
   PROJECTS.forEach((project) => {
     const card = document.createElement("article");
     card.className = "project-card fade-element";
-    // card.innerHTML = `
-    //   <img class="project-card__image" src="${project.image}" alt="${project.title}" loading="lazy">
-    //   <div class="project-card__content">
-    //     <h3 class="project-card__title">${project.title}</h3>
-    //     <p class="project-card__description">${project.summary}</p>
-    //     <ul class="project-card__tech-list">
-    //       ${project.tech.map((tech) => `<li class="project-card__tech-item">${tech}</li>`).join("")}
-    //     </ul>
-    //     <a href="${project.repo}" class="project-card__link" target="_blank" rel="noopener noreferrer">
-    //       View on GitHub →
-    //     </a>
-    //   </div>
-    // `;
     card.innerHTML = `
   <img
     class="project-card__image"
@@ -221,7 +199,7 @@ function renderProjects() {
     "fade-element--visible",
     CONFIG.observerOptions,
   );
-  init3DTilt();
+  initFloatHover();
 }
 
 // ========================================

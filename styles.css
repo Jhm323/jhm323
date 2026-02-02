@@ -374,8 +374,8 @@
     box-shadow var(--transition);
   display: flex;
   flex-direction: column;
-  transform-style: preserve-3d;
   contain: layout style paint;
+  cursor: pointer;
 }
 
 .project-card:nth-child(1) {
@@ -479,6 +479,65 @@
 .project-card__link:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 4px;
+}
+
+/* =========== project-card animation ================ */
+/* Float-and-hover for project cards + accent glow */
+@keyframes floatY {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.project-card--float {
+  animation: floatY 6s ease-in-out infinite;
+  will-change: transform, box-shadow;
+  position: relative;
+}
+
+/* subtle accent glow using pseudo-element */
+.project-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  box-shadow: 0 0 0 rgba(59, 130, 246, 0);
+  opacity: 0;
+  transition:
+    box-shadow 220ms ease,
+    opacity 220ms ease;
+}
+
+.project-card--hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow:
+    0 18px 44px rgba(0, 0, 0, 0.14),
+    0 0 18px rgba(59, 130, 246, 0.08);
+  transition:
+    transform 220ms ease,
+    box-shadow 220ms ease;
+}
+
+.project-card--hover::after {
+  box-shadow: 0 0 28px rgba(59, 130, 246, 0.14);
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-card--float {
+    animation: none !important;
+    transform: none !important;
+  }
+  .project-card::after {
+    transition: none !important;
+  }
 }
 
 /* ========================================
