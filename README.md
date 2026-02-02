@@ -75,7 +75,8 @@ I enjoy building systems that are **reliable, scalable, and human-centered**, an
 
 ### 👕 WTWR (What to Wear?) — Full-Stack Authentication App
 **Tech:** React, JavaScript, REST APIs, JWT, Node.js, MongoDB  
-🔗 [Repository](https://github.com/jhm323/se_project_react)
+🔗 [Repository](https://github.com/jhm323/se_project_react) • 🌐 [Live Demo](https://wtwr-frontend-5mwu.onrender.com/)
+
 
 - Implemented persistent JWT authentication with protected frontend routes
 - Managed global user state with React Context
