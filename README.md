@@ -15,7 +15,7 @@
 **Software Engineer | Data & Automation Specialist**  
 📍 Charlotte, NC  
 📧 james.holden.moore@gmail.com  
-🔗 [LinkedIn](https://www.linkedin.com/in/james-holden-moore) • [GitHub](https://github.com/jhm323)
+🔗 [LinkedIn](https://www.linkedin.com/in/james-holden-moore)
 • [Portfolio](https://jhm323.github.io/jhm323/)
 
 ---
