@@ -157,19 +157,61 @@ function renderProjects() {
   PROJECTS.forEach((project) => {
     const card = document.createElement("article");
     card.className = "project-card fade-element";
+    // card.innerHTML = `
+    //   <img class="project-card__image" src="${project.image}" alt="${project.title}" loading="lazy">
+    //   <div class="project-card__content">
+    //     <h3 class="project-card__title">${project.title}</h3>
+    //     <p class="project-card__description">${project.summary}</p>
+    //     <ul class="project-card__tech-list">
+    //       ${project.tech.map((tech) => `<li class="project-card__tech-item">${tech}</li>`).join("")}
+    //     </ul>
+    //     <a href="${project.repo}" class="project-card__link" target="_blank" rel="noopener noreferrer">
+    //       View on GitHub →
+    //     </a>
+    //   </div>
+    // `;
     card.innerHTML = `
-      <img class="project-card__image" src="${project.image}" alt="${project.title}" loading="lazy">
-      <div class="project-card__content">
-        <h3 class="project-card__title">${project.title}</h3>
-        <p class="project-card__description">${project.description}</p>
-        <ul class="project-card__tech-list">
-          ${project.tech.map((tech) => `<li class="project-card__tech-item">${tech}</li>`).join("")}
-        </ul>
-        <a href="${project.repo}" class="project-card__link" target="_blank" rel="noopener noreferrer">
-          View on GitHub →
-        </a>
-      </div>
-    `;
+  <img
+    class="project-card__image"
+    src="${project.image}"
+    alt="${project.title}"
+    loading="lazy"
+  >
+
+  <div class="project-card__content">
+    <h3 class="project-card__title">${project.title}</h3>
+
+    <p class="project-card__description">
+      ${project.summary}
+    </p>
+
+    <p class="project-card__audience">
+      <strong>Who it’s for:</strong> ${project.whoItsFor}
+    </p>
+
+    <ul class="project-card__features">
+      ${project.features
+        .map((feature) => `<li class="project-card__feature">${feature}</li>`)
+        .join("")}
+    </ul>
+
+    <ul class="project-card__tech-list">
+      ${project.tech
+        .map((tech) => `<li class="project-card__tech-item">${tech}</li>`)
+        .join("")}
+    </ul>
+
+    <a
+      href="${project.repo}"
+      class="project-card__link"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      View on GitHub →
+    </a>
+  </div>
+`;
+
     fragment.appendChild(card);
   });
 
