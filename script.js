@@ -1,8 +1,6 @@
 "use strict";
 
-// ========================================
 // DOM ELEMENTS
-// ========================================
 const elements = {
   page: document.querySelector(".page"),
   scrollProgress: document.getElementById("scrollProgress"),
@@ -14,18 +12,14 @@ const elements = {
   legoJHM: document.getElementById("legoJHM"),
 };
 
-// ========================================
 // THEME
-// ========================================
 function initTheme() {
   elements.themeToggle?.addEventListener("click", () => {
     elements.page.classList.toggle("page--dark");
   });
 }
 
-// ========================================
 // SCROLL PROGRESS
-// ========================================
 function updateScrollProgress() {
   if (!elements.scrollProgress) return;
   const scrolled = Math.min(
@@ -37,33 +31,23 @@ function updateScrollProgress() {
   elements.scrollProgress.style.width = `${scrolled}%`;
 }
 
-// ========================================
 // SCROLL ANIMATIONS
-// ========================================
-function fadeInOnScroll(selector, visibleClass, options) {
-  const observer = new IntersectionObserver((entries) => {
+function initScrollAnimations() {
+  const observer = new IntersectionObserver((entries, obs) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        entry.target.classList.add(visibleClass);
+        entry.target.classList.add("fade-element--visible");
         observer.unobserve(entry.target);
       }
     });
-  }, options);
+  }, CONFIG.observerOptions);
 
-  document.querySelectorAll(selector).forEach((el) => observer.observe(el));
+  document.querySelectorAll(".fade-element").forEach((el) => {
+    observer.observe(el);
+  });
 }
 
-function initScrollAnimations() {
-  fadeInOnScroll(
-    ".fade-element",
-    "fade-element--visible",
-    CONFIG.observerOptions,
-  );
-}
-
-// ========================================
 // PROJECT-CARD UTILS
-// ========================================
 function setHover(card, on) {
   card.classList.toggle("project-card--hover", on);
 }
@@ -84,9 +68,7 @@ function initFloatHover() {
   });
 }
 
-// ========================================
 // EASTER EGG
-// ========================================
 function initEasterEgg() {
   if (!elements.easterEgg) return;
   let konamiIndex = 0;
@@ -136,9 +118,7 @@ function showEasterEggClue() {
   }, 2000);
 }
 
-// ========================================
 // PROJECTS
-// ========================================
 function renderProjects() {
   if (!elements.projectGrid || !PROJECTS) return;
   const fragment = document.createDocumentFragment();
@@ -195,17 +175,11 @@ function renderProjects() {
 
   elements.projectGrid.appendChild(fragment);
 
-  fadeInOnScroll(
-    ".project-card",
-    "fade-element--visible",
-    CONFIG.observerOptions,
-  );
+  initScrollAnimations();
   initFloatHover();
 }
 
-// ========================================
 // SMOOTH SCROLL
-// ========================================
 function initSmoothScroll() {
   document.querySelectorAll('a[href^="#"]').forEach((link) => {
     link.addEventListener("click", (e) => {
@@ -216,9 +190,7 @@ function initSmoothScroll() {
   });
 }
 
-// ========================================
 // JHM Animation
-// ========================================
 function animateBlocks(blocks, from, to, duration, delayStep, easing) {
   blocks.forEach((block, i) => {
     setTimeout(
@@ -294,9 +266,7 @@ function playLegoJHMAnimation() {
   }, 7500);
 }
 
-// ========================================
 // INITIALIZATION
-// ========================================
 function init() {
   if (elements.currentYear) {
     elements.currentYear.textContent = new Date().getFullYear();
@@ -316,9 +286,7 @@ function init() {
   window.addEventListener("scroll", updateScrollProgress, { passive: true });
 }
 
-// ========================================
 // START APPLICATION
-// ========================================
 if (document.readyState === "loading") {
   document.addEventListener("DOMContentLoaded", init);
 } else {

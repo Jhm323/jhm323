@@ -1,6 +1,4 @@
-/* ========================================
-   CSS CUSTOM PROPERTIES
-   ======================================== */
+/* CSS CUSTOM PROPERTIES */
 :root {
   --spacing-sm: 8px;
   --spacing-md: 16px;
@@ -36,9 +34,7 @@
   --white: #f1f5f9;
 }
 
-/* ========================================
-   BASE STYLES
-   ======================================== */
+/* BASE STYLES */
 *,
 *::before,
 *::after {
@@ -59,9 +55,7 @@
   min-height: 100vh;
 }
 
-/* ========================================
-   ACCESSIBILITY
-   ======================================== */
+/* ACCESSIBILITY */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -90,9 +84,7 @@
   border-width: 0;
 }
 
-/* ========================================
-   UTILITY CLASSES
-   ======================================== */
+/* UTILITY CLASSES */
 .scroll-progress {
   position: fixed;
   top: 0;
@@ -118,9 +110,7 @@
   transform: translateY(0);
 }
 
-/* ========================================
-   HEADER
-   ======================================== */
+/* HEADER */
 .header {
   position: relative;
   width: 100%;
@@ -196,9 +186,7 @@
   overflow-wrap: break-word;
 }
 
-/* ========================================
-   NAVIGATION
-   ======================================== */
+/* NAVIGATION */
 .nav {
   margin-bottom: var(--spacing-md);
 }
@@ -221,9 +209,7 @@
   border-radius: 2px;
 }
 
-/* ========================================
-   BUTTONS
-   ======================================== */
+/* BUTTONS */
 .button {
   padding: var(--spacing-sm) var(--spacing-md);
   cursor: pointer;
@@ -251,9 +237,7 @@
   outline-offset: 4px;
 }
 
-/* ========================================
-   MAIN CONTENT
-   ======================================== */
+/* MAIN CONTENT */
 .main {
   padding: var(--spacing-xl);
   max-width: 1400px;
@@ -264,9 +248,7 @@
     box-shadow 0.4s;
 }
 
-/* ========================================
-   SECTIONS (SHARED STYLES)
-   ======================================== */
+/* SECTIONS (SHARED STYLES) */
 .about,
 .github {
   margin-bottom: var(--spacing-xl);
@@ -290,18 +272,14 @@
   margin-bottom: var(--spacing-xl);
 }
 
-/* ========================================
-   ABOUT SECTION
-   ======================================== */
+/* ABOUT SECTION */
 .about__text {
   color: var(--muted);
   font-size: clamp(16px, 2vw, 20px);
   line-height: 1.8;
 }
 
-/* ========================================
-   GITHUB SECTION
-   ======================================== */
+/* GITHUB SECTION */
 .github__link {
   text-decoration: none;
   display: block;
@@ -348,9 +326,7 @@
   font-size: 18px;
 }
 
-/* ========================================
-   PROJECTS SECTION
-   ======================================== */
+/* PROJECTS SECTION */
 .projects {
   margin-bottom: var(--spacing-xl);
 }
@@ -362,9 +338,7 @@
   margin-top: var(--spacing-xl);
 }
 
-/* ========================================
-   PROJECT CARDS (CONSOLIDATED)
-   ======================================== */
+/* PROJECT CARDS (CONSOLIDATED) */
 /* Float-and-hover for project cards + accent glow */
 @keyframes floatY {
   0% {
@@ -535,9 +509,8 @@
   }
 }
 
-/* ========================================
-   FOOTER
-   ======================================== */
+/* FOOTER */
+
 .footer {
   position: fixed;
   left: 0;
@@ -570,9 +543,7 @@
   text-align: center;
 }
 
-/* ========================================
-   VIRTUAL KEYPAD (Mobile Konami Code)
-   ======================================== */
+/* VIRTUAL KEYPAD (Mobile Konami Code) */
 .virtual-keypad {
   display: flex;
   flex-direction: row;
@@ -633,9 +604,7 @@
   border-color: var(--accent);
 }
 
-/* ========================================
-   EASTER EGG
-   ======================================== */
+/* EASTER EGG */
 .easter-egg {
   position: fixed;
   inset: 0;
@@ -707,9 +676,7 @@
   font-weight: 500;
 }
 
-/* ========================================
-   Lego JHM Animation
-   ======================================== */
+/* Lego JHM Animation */
 .lego-jhm-animation {
   display: block;
   position: absolute;
@@ -732,9 +699,7 @@
   will-change: transform, opacity;
 }
 
-/* ========================================
-   ANIMATIONS
-   ======================================== */
+/* ANIMATIONS */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -771,9 +736,7 @@
   }
 }
 
-/* ========================================
-   MEDIA QUERIES
-   ======================================== */
+/* MEDIA QUERIES */
 @media (max-width: 1024px) {
   .projects__grid {
     grid-template-columns: repeat(4, 1fr);
