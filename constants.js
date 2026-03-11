@@ -67,25 +67,24 @@ const PROJECTS = [
   },
 
   {
-    title: "News Explorer",
+    title: "Triple Peaks Coffee Shop",
     summary:
-      "A React application that allows users to search for recent news articles and save them for later reading.",
+      "A static website for a coffee shop built using structured HTML and modular CSS methodology.",
     whoItsFor:
-      "Users who want a simple way to browse and manage news articles.",
+      "Small businesses that need a clean, responsive informational website.",
     whyItMatters:
-      "This project demonstrates working with third-party APIs, managing state in React, and handling paginated data.",
+      "This project demonstrates layout structure, BEM methodology, and basic animation techniques.",
     features: [
-      "Search and browse recent news articles",
-      "Save and remove articles from a personal list",
-      "Paginated results with loading states",
+      "Menu and reservation layout sections",
+      "Responsive structure",
+      "CSS-based hover and transition effects",
     ],
-    tech: ["React", "REST APIs", "CSS"],
+    tech: ["HTML5", "CSS3", "BEM", "Flexbox"],
     techLabel:
-      "Focused on API integration, component structure, and state management.",
-    repo: "https://github.com/jhm323/News-Explorer",
-    image: "assets/news-explorer.png",
+      "Focused on semantic structure, maintainable CSS, and clean layout implementation.",
+    repo: "https://github.com/jhm323/se_project_coffeeshop",
+    image: "assets/triplePeaks.png",
   },
-
   {
     title: "Around the U.S.",
     summary:
@@ -105,7 +104,6 @@ const PROJECTS = [
     repo: "https://github.com/jhm323/se_project_aroundtheus",
     image: "assets/around-us.png",
   },
-
   {
     title: "WTWR — Weather-Based Clothing App",
     summary:
@@ -125,25 +123,5 @@ const PROJECTS = [
       "Built to practice API integration, backend routing, authentication, and database operations.",
     repo: "https://github.com/jhm323/se_project_react",
     image: "assets/wtwr.png",
-  },
-
-  {
-    title: "Triple Peaks Coffee Shop",
-    summary:
-      "A static website for a coffee shop built using structured HTML and modular CSS methodology.",
-    whoItsFor:
-      "Small businesses that need a clean, responsive informational website.",
-    whyItMatters:
-      "This project demonstrates layout structure, BEM methodology, and basic animation techniques.",
-    features: [
-      "Menu and reservation layout sections",
-      "Responsive structure",
-      "CSS-based hover and transition effects",
-    ],
-    tech: ["HTML5", "CSS3", "BEM", "Flexbox"],
-    techLabel:
-      "Focused on semantic structure, maintainable CSS, and clean layout implementation.",
-    repo: "https://github.com/jhm323/se_project_coffeeshop",
-    image: "assets/triplePeaks.png",
   },
 ];
