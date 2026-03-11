@@ -1,6 +1,6 @@
 "use strict";
 
-// DOM ELEMENTS
+// DOM elements
 const elements = {
   page: document.querySelector(".page"),
   scrollProgress: document.getElementById("scrollProgress"),
@@ -12,14 +12,21 @@ const elements = {
   legoJHM: document.getElementById("legoJHM"),
 };
 
-// THEME
+// Theme toggle
 function initTheme() {
-  elements.themeToggle?.addEventListener("click", () => {
+  if (!elements.themeToggle) return;
+  elements.themeToggle.addEventListener("click", () => {
     elements.page.classList.toggle("page--dark");
+    const isDark = elements.page.classList.contains("page--dark");
+    elements.themeToggle.textContent = isDark ? "🌙" : "☀️";
+    elements.themeToggle.setAttribute(
+      "aria-label",
+      isDark ? "Switch to light mode" : "Switch to dark mode",
+    );
   });
 }
 
-// SCROLL PROGRESS
+// Scroll progress
 function updateScrollProgress() {
   if (!elements.scrollProgress) return;
   const scrolled = Math.min(
@@ -31,13 +38,13 @@ function updateScrollProgress() {
   elements.scrollProgress.style.width = `${scrolled}%`;
 }
 
-// SCROLL ANIMATIONS
+// Scroll animations
 function initScrollAnimations() {
   const observer = new IntersectionObserver((entries, obs) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         entry.target.classList.add("fade-element--visible");
-        observer.unobserve(entry.target);
+        obs.unobserve(entry.target);
       }
     });
   }, CONFIG.observerOptions);
@@ -47,12 +54,11 @@ function initScrollAnimations() {
   });
 }
 
-// PROJECT-CARD UTILS
+// Project card utils
 function setHover(card, on) {
   card.classList.toggle("project-card--hover", on);
 }
 
-// initialize float + hover behavior; also adds small randomized delay for natural motion
 function initFloatHover() {
   document.querySelectorAll(".project-card").forEach((card) => {
     card.classList.add("project-card--float");
@@ -68,7 +74,7 @@ function initFloatHover() {
   });
 }
 
-// EASTER EGG
+// Easter Egg
 function initEasterEgg() {
   if (!elements.easterEgg) return;
   let konamiIndex = 0;
@@ -118,7 +124,7 @@ function showEasterEggClue() {
   }, 2000);
 }
 
-// PROJECTS
+// Projects
 function renderProjects() {
   if (!elements.projectGrid || !PROJECTS) return;
   const fragment = document.createDocumentFragment();
@@ -179,7 +185,7 @@ function renderProjects() {
   initFloatHover();
 }
 
-// SMOOTH SCROLL
+// Smooth scroll
 function initSmoothScroll() {
   document.querySelectorAll('a[href^="#"]').forEach((link) => {
     link.addEventListener("click", (e) => {
@@ -266,7 +272,7 @@ function playLegoJHMAnimation() {
   }, 7500);
 }
 
-// INITIALIZATION
+// Initialize
 function init() {
   if (elements.currentYear) {
     elements.currentYear.textContent = new Date().getFullYear();
@@ -286,7 +292,7 @@ function init() {
   window.addEventListener("scroll", updateScrollProgress, { passive: true });
 }
 
-// START APPLICATION
+// Start App
 if (document.readyState === "loading") {
   document.addEventListener("DOMContentLoaded", init);
 } else {
