@@ -37,6 +37,7 @@ const COLORS = [
 ];
 
 const PROJECTS = [
+  // Card 1 — span 4 (featured large)
   {
     title: "Mother Meera",
     summary:
@@ -66,44 +67,7 @@ const PROJECTS = [
     image: "assets/mother-meera.png",
   },
 
-  {
-    title: "Triple Peaks Coffee Shop",
-    summary:
-      "A static website for a coffee shop built using structured HTML and modular CSS methodology.",
-    whoItsFor:
-      "Small businesses that need a clean, responsive informational website.",
-    whyItMatters:
-      "This project demonstrates layout structure, BEM methodology, and basic animation techniques.",
-    features: [
-      "Menu and reservation layout sections",
-      "Responsive structure",
-      "CSS-based hover and transition effects",
-    ],
-    tech: ["HTML5", "CSS3", "BEM", "Flexbox"],
-    techLabel:
-      "Focused on semantic structure, maintainable CSS, and clean layout implementation.",
-    repo: "https://github.com/jhm323/se_project_coffeeshop",
-    image: "assets/triplePeaks.png",
-  },
-  {
-    title: "Around the U.S.",
-    summary:
-      "A responsive photo-sharing layout built from a design mockup using semantic HTML and modern CSS.",
-    whoItsFor:
-      "Users viewing content across mobile, tablet, and desktop devices.",
-    whyItMatters:
-      "This project demonstrates responsive design principles and translating Figma designs into functional code.",
-    features: [
-      "Mobile-first responsive layout",
-      "Semantic HTML structure",
-      "Flexbox and Grid for layout control",
-    ],
-    tech: ["HTML", "CSS", "Flexbox", "Grid", "Figma"],
-    techLabel:
-      "Emphasizes responsive design, clean structure, and attention to layout detail.",
-    repo: "https://github.com/jhm323/se_project_aroundtheus",
-    image: "assets/around-us.png",
-  },
+  // Card 2 — span 2 (featured small)
   {
     title: "WTWR — Weather-Based Clothing App",
     summary:
@@ -123,5 +87,68 @@ const PROJECTS = [
       "Built to practice API integration, backend routing, authentication, and database operations.",
     repo: "https://github.com/jhm323/se_project_react",
     image: "assets/wtwr.png",
+  },
+
+  // Card 3 — span 3
+  {
+    title: "Around the U.S.",
+    summary:
+      "A responsive photo-sharing layout built from a design mockup using semantic HTML and modern CSS.",
+    whoItsFor:
+      "Users viewing content across mobile, tablet, and desktop devices.",
+    whyItMatters:
+      "This project demonstrates responsive design principles and translating Figma designs into functional code.",
+    features: [
+      "Mobile-first responsive layout",
+      "Semantic HTML structure",
+      "Flexbox and Grid for layout control",
+    ],
+    tech: ["HTML", "CSS", "Flexbox", "Grid", "Figma"],
+    techLabel:
+      "Emphasizes responsive design, clean structure, and attention to layout detail.",
+    repo: "https://github.com/jhm323/se_project_aroundtheus",
+    image: "assets/around-us.png",
+  },
+
+  // Card 4 — span 3
+  {
+    title: "News Explorer",
+    summary:
+      "A React application that allows users to search for recent news articles and save them for later reading.",
+    whoItsFor:
+      "Users who want a simple way to browse and manage news articles.",
+    whyItMatters:
+      "This project demonstrates working with third-party APIs, managing state in React, and handling paginated data.",
+    features: [
+      "Search and browse recent news articles",
+      "Save and remove articles from a personal list",
+      "Paginated results with loading states",
+    ],
+    tech: ["React", "REST APIs", "CSS"],
+    techLabel:
+      "Focused on API integration, component structure, and state management.",
+    repo: "https://github.com/jhm323/News-Explorer",
+    image: "assets/news-explorer.png",
+  },
+
+  // Card 5 — span 6 (full width bottom row)
+  {
+    title: "Triple Peaks Coffee Shop",
+    summary:
+      "A static website for a coffee shop built using structured HTML and modular CSS methodology.",
+    whoItsFor:
+      "Small businesses that need a clean, responsive informational website.",
+    whyItMatters:
+      "This project demonstrates layout structure, BEM methodology, and basic animation techniques.",
+    features: [
+      "Menu and reservation layout sections",
+      "Responsive structure",
+      "CSS-based hover and transition effects",
+    ],
+    tech: ["HTML5", "CSS3", "BEM", "Flexbox"],
+    techLabel:
+      "Focused on semantic structure, maintainable CSS, and clean layout implementation.",
+    repo: "https://github.com/jhm323/se_project_coffeeshop",
+    image: "assets/triplePeaks.png",
   },
 ];
