@@ -149,6 +149,6 @@ const PROJECTS = [
     techLabel:
       "Focused on semantic structure, maintainable CSS, and clean layout implementation.",
     repo: "https://github.com/jhm323/se_project_coffeeshop",
-    image: "assets/triplePeaks.png",
+    image: "assets/triple-peaks.png",
   },
 ];
