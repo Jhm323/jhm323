@@ -191,7 +191,7 @@
   position: relative;
   z-index: 2;
   margin-top: auto;
-  padding: 0 var(--spacing-xl) 80px;
+  padding: 0 var(--spacing-xl) 120px;
   max-width: 720px;
 }
 
