@@ -38,6 +38,35 @@ const COLORS = [
 
 const PROJECTS = [
   {
+    title: "Mother Meera",
+    summary:
+      "A LinkTree-style landing page built to direct social media traffic to the online accounts of Mother Meera, a spiritual teacher and mystic. Minimal, elegant, and fast.",
+    whoItsFor:
+      "Spiritual communities and organizations that need a clean, accessible link-aggregator page for social media traffic.",
+    whyItMatters:
+      "This project demonstrates clean separation of concerns using ES Modules, progressive enhancement, accessibility best practices, and thoughtful UX design — all without a framework.",
+    features: [
+      "All links and profile info managed via a constants.js module — no hardcoding",
+      "Auto-detects platform from URL to apply correct icon, color, and animation",
+      "Staggered animations and glassmorphism card layout with gold accent theming",
+      "Fully accessible: semantic HTML, aria-label navigation, and keyboard navigable",
+      "Progressive enhancement — static fallback links work even with JavaScript disabled",
+    ],
+    tech: [
+      "HTML5",
+      "CSS3",
+      "Vanilla JavaScript",
+      "ES Modules",
+      "Font Awesome",
+      "GitHub Pages",
+    ],
+    techLabel:
+      "Focused on modularity, accessibility, and delivering a polished UX with zero dependencies.",
+    repo: "https://github.com/Jhm323/Mother-Meera",
+    image: "assets/mother-meera.png",
+  },
+
+  {
     title: "News Explorer",
     summary:
       "A React application that allows users to search for recent news articles and save them for later reading.",
