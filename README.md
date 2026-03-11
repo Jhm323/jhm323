@@ -1,8 +1,5 @@
 # James Holden Moore
 
-![GitHub stars](https://img.shields.io/github/stars/Jhm323/jhm323?style=flat-square)
-![GitHub forks](https://img.shields.io/github/forks/Jhm323/jhm323?style=flat-square)
-![GitHub last commit](https://img.shields.io/github/last-commit/Jhm323/jhm323?style=flat-square)
 ![GitHub repo size](https://img.shields.io/github/repo-size/Jhm323/jhm323?style=flat-square)
 
 ![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-yellow?style=flat-square)
