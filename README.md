@@ -1,7 +1,6 @@
 # James Holden Moore
 
 ![GitHub repo size](https://img.shields.io/github/repo-size/Jhm323/jhm323?style=flat-square)
-
 ![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-yellow?style=flat-square)
 ![React](https://img.shields.io/badge/React-blue?style=flat-square)
 ![Node.js](https://img.shields.io/badge/Node.js-green?style=flat-square)
