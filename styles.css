@@ -222,6 +222,36 @@
   text-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
 }
 
+/* SCROLL INDICATOR */
+.header__scroll-indicator {
+  position: absolute;
+  bottom: var(--spacing-xl);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  animation: fadeInUp 1s ease 1.2s both;
+}
+
+.header__scroll-label {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.header__scroll-arrow {
+  width: 20px;
+  height: 20px;
+  border-right: 2px solid rgba(255, 255, 255, 0.5);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+  transform: rotate(45deg);
+  animation: scrollBounce 1.6s ease-in-out infinite;
+}
+
 /* NAVIGATION */
 .nav {
   position: relative;
@@ -250,27 +280,6 @@
   outline-offset: 4px;
   border-radius: 2px;
 }
-/* .nav {
-  margin-bottom: var(--spacing-md);
-}
-
-.nav__link {
-  color: var(--white);
-  margin-right: var(--spacing-md);
-  text-decoration: none;
-  transition: opacity var(--transition);
-}
-
-.nav__link:hover,
-.nav__link:focus {
-  opacity: 0.8;
-}
-
-.nav__link:focus-visible {
-  outline: 2px solid var(--white);
-  outline-offset: 4px;
-  border-radius: 2px;
-} */
 
 /* BUTTONS */
 .button {
