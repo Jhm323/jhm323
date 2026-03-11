@@ -44,59 +44,81 @@
     </header>
 
     <main class="main">
+      <!-- About -->
       <section class="about fade-element" aria-labelledby="aboutTitle">
         <h2 class="about__title" id="aboutTitle">About</h2>
-        <p class="about__text">
+        <p class="about__intro">
           <em
             >"I didn't take the straight road into software — and I think that's
             what makes me a better engineer."</em
           >
+        </p>
+        <p class="about__text">
           I've managed a 33-acre farm, coordinated food distribution for 320+
           partner agencies, installed solar panels, and built the first
           AI-assisted analysis tool at a legal tech company — all before writing
           my first React component. Every role taught me how to solve real
           problems with limited resources, communicate across disciplines, and
-          build systems that actually hold up under pressure. Now I build
-          full-stack applications. I'm comfortable across the stack — React and
-          TypeScript on the frontend, Node.js and Express on the backend,
-          MongoDB and SQL for data, and automation tooling wherever it makes
-          things faster. I'm finishing my software engineering certificate at
-          TripleTen while contributing to a production Meteor.js application in
-          an agile team externship. I'm bilingual in English and Spanish, based
-          in Charlotte, NC, and looking for engineering roles on teams that care
+          build systems that actually hold up under pressure.
+        </p>
+        <p class="about__text">
+          Now I build full-stack applications. I'm comfortable across the stack
+          — React and TypeScript on the frontend, Node.js and Express on the
+          backend, MongoDB and SQL for data, and automation tooling wherever it
+          makes things faster. I'm finishing my software engineering certificate
+          at TripleTen while contributing to a production Meteor.js application
+          in an agile team externship.
+        </p>
+        <p class="about__text">
+          English is my mother toung and I'm conversation in Spanish, based in
+          Charlotte, NC, and looking for engineering roles on teams that care
           about what they're building.
         </p>
       </section>
 
-      <section class="github fade-element" aria-labelledby="githubTitle">
-        <h2 class="github__title" id="githubTitle">GitHub Activity</h2>
-        <a
-          href="https://github.com/jhm323"
-          class="github__link"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <div class="github__card">
-            <svg
-              class="github__icon"
-              viewBox="0 0 16 16"
-              width="48"
-              height="48"
-              aria-hidden="true"
-            >
-              <path
-                fill="currentColor"
-                d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"
-              ></path>
-            </svg>
-            <h3 class="github__card-title">View My GitHub Profile</h3>
-            <p class="github__card-text">
-              Check out my repositories and contributions →
-            </p>
-          </div>
-        </a>
+      <!-- Contact & CTA -->
+      <section class="contact fade-element" aria-labelledby="contactTitle">
+        <h2 class="contact__title" id="contactTitle">Let's Work Together</h2>
+        <p class="contact__sub">
+          I'm actively looking for junior and full-stack engineering roles —
+          especially on teams building things that matter. Reach out directly or
+          connect below.
+        </p>
+        <div class="contact__links">
+          <a
+            href="mailto:james.holden.moore@gmail.com"
+            class="contact__btn contact__btn--primary"
+          >
+            ✉ james.holden.moore@gmail.com
+          </a>
+          <a
+            href="https://docs.google.com/document/d/1tTyF6LWq9C_v36oHbfQ4r43lFQv-62P33I8G9pD_KZE/export?format=pdf"
+            class="contact__btn contact__btn--outline"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            ↓ Download Resume
+          </a>
+          <a
+            href="https://www.linkedin.com/in/james-holden-moore"
+            class="contact__btn contact__btn--outline"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            LinkedIn ↗
+          </a>
+          <a
+            href="https://github.com/jhm323"
+            class="contact__btn contact__btn--outline"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            GitHub ↗
+          </a>
+        </div>
       </section>
 
+      <!-- Projects -->
       <section class="projects fade-element" aria-labelledby="projectsTitle">
         <h2 class="projects__title" id="projectsTitle">Projects</h2>
         <div class="projects__grid" id="projectGrid"></div>
