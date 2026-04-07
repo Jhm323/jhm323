@@ -60,6 +60,7 @@ React · REST APIs · CSS
 
 ### Around the U.S. — Responsive Frontend
 HTML · CSS · Grid · Flexbox  
+[Live Demo](https://jhm323.github.io/se_project_aroundtheus/)
 
 - Built a responsive layout from Figma designs  
 - Focused on layout stability across screen sizes and content changes  
