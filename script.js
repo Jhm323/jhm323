@@ -165,14 +165,24 @@ function renderProjects() {
         .join("")}
     </ul>
 
-    <a
-      href="${project.repo}"
-      class="project-card__link"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      View on GitHub →
-    </a>
+    <div class="project-card__links">
+      <a
+        href="${project.repo}"
+        class="project-card__link"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        View Repo →
+      </a>
+      ${project.live ? `<a
+        href="${project.live}"
+        class="project-card__link project-card__link--demo"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Try Live Demo →
+      </a>` : ""}
+    </div>
   </div>
 `;
 

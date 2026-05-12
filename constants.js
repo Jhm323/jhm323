@@ -37,6 +37,29 @@ const COLORS = [
 ];
 
 const PROJECTS = [
+  // Card 0 — CodeRef AI (featured)
+  {
+    title: "CodeRef AI",
+    summary:
+      "A weekend-built RAG application for AEC professionals. Upload a building code PDF, ask questions in plain English, and get back the exact verbatim code section with citations — never summarized or paraphrased. Cross-referenced sections automatically expand so engineers can trace requirements across hundreds of pages instantly.",
+    whoItsFor:
+      "Architects, engineers, and construction professionals who need fast, precise answers from building code documents without digging through hundreds of pages.",
+    whyItMatters:
+      "This project demonstrates a full RAG pipeline built without a framework — chunking and embedding a 833-page PDF client-side, querying a 70B LLM via API, and returning verbatim citations with zero hallucination risk.",
+    features: [
+      "Upload any building code PDF — processes 800+ pages into 7,000+ searchable chunks",
+      "Returns exact verbatim code text with section citations — no summaries or paraphrasing",
+      "Auto-expands cross-referenced sections so requirements can be traced across the document instantly",
+      "Powered by Llama 3.3 70B via Groq API for near-instant retrieval",
+    ],
+    tech: ["Vanilla JavaScript", "PDF.js", "Groq API", "Llama 3.3 70B", "Tailwind CSS", "RAG"],
+    techLabel:
+      "Demonstrates a complete RAG pipeline — PDF parsing, chunking, retrieval, and LLM integration — with no backend or framework.",
+    repo: "https://github.com/jhm323/coderef-ai",
+    live: "https://jhm323.github.io/coderef-ai",
+    image: "assets/coderef-ai.png",
+  },
+
   // Card 1 — span 4 (featured large) — strongest visual
   {
     title: "WTWR — Weather-Based Clothing App",

@@ -377,6 +377,26 @@
   margin-bottom: 0;
 }
 
+.about__label {
+  color: var(--accent);
+  font-size: clamp(15px, 1.8vw, 17px);
+  font-weight: 700;
+  margin-bottom: var(--spacing-sm);
+  margin-top: var(--spacing-lg);
+}
+
+.about__list {
+  color: var(--muted);
+  font-size: clamp(15px, 1.8vw, 17px);
+  line-height: 1.85;
+  margin-bottom: var(--spacing-md);
+  padding-left: var(--spacing-lg);
+}
+
+.about__list li {
+  margin-bottom: var(--spacing-xs, 6px);
+}
+
 /* Contact / Call to action */
 .contact {
   margin-bottom: var(--spacing-xl);
@@ -573,9 +593,15 @@
   font-weight: 500;
 }
 
+.project-card__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-md);
+}
+
 .project-card__link {
   display: inline-block;
-  margin-top: var(--spacing-md);
   font-weight: 600;
   text-decoration: none;
   color: var(--accent);
