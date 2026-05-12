@@ -67,6 +67,36 @@ HTML · CSS · Grid · Flexbox
 
 ---
 
+### Currently Working on getting these up on portfolio
+
+### AEC CodeRef tool — AI retrvial 
+
+---
+
+### FlashPoint — Exhibit website
+
+---
+
+### MCP 
+
+---
+
+### Basil 
+
+---
+
+### Mother Meera APP 
+
+---
+
+### Messages from the Magi APP
+
+---
+
+### Artiji
+
+---
+
 ## Experience (selected)
 
 **Data Analyst — Moore Hackney & Associates (2025–Present)**  
