@@ -52,7 +52,14 @@ const PROJECTS = [
       "Auto-expands cross-referenced sections so requirements can be traced across the document instantly",
       "Powered by Llama 3.3 70B via Groq API for near-instant retrieval",
     ],
-    tech: ["Vanilla JavaScript", "PDF.js", "Groq API", "Llama 3.3 70B", "Tailwind CSS", "RAG"],
+    tech: [
+      "Vanilla JavaScript",
+      "PDF.js",
+      "Groq API",
+      "Llama 3.3 70B",
+      "Tailwind CSS",
+      "RAG",
+    ],
     techLabel:
       "Demonstrates a complete RAG pipeline — PDF parsing, chunking, retrieval, and LLM integration — with no backend or framework.",
     repo: "https://github.com/jhm323/coderef-ai",
@@ -173,5 +180,35 @@ const PROJECTS = [
       "Focused on semantic structure, maintainable CSS, and clean layout implementation.",
     repo: "https://github.com/jhm323/se_project_coffeeshop",
     image: "assets/triple-peaks.png",
+  },
+
+  // Card 6 — Flashpoint Gallery Website
+  {
+    title: "Flashpoint Gallery",
+    summary:
+      "A production website for a South Philly outsider art gallery and community space. Stark black-and-white aesthetic with a rainbow animation accent, a persistent live jazz radio player, and an admin panel for gallery owners to manage exhibits and events.",
+    whoItsFor:
+      "Gallery visitors looking to explore exhibitions and events, and gallery owners who need a simple way to update content without a CMS.",
+    whyItMatters:
+      "This project demonstrates thoughtful UX decisions — like persisting audio across page navigation with localStorage — and production-ready patterns like form handling, admin authentication, and a modular vanilla JS architecture with no framework.",
+    features: [
+      "Stark black-and-white gallery aesthetic with a subtle rainbow animation for a touch of warmth",
+      "Live WRTI Philadelphia jazz stream persists across page navigation using localStorage",
+      "Two Formspree-powered forms for contact inquiries and exhibit scheduling — no backend required",
+      "Password-protected admin panel for owners to upload exhibition photos and manage calendar events",
+    ],
+    tech: [
+      "HTML5",
+      "CSS3",
+      "Vanilla JavaScript",
+      "Formspree",
+      "Netlify",
+      "localStorage",
+    ],
+    techLabel:
+      "Demonstrates modular vanilla JS architecture, persistent audio state, form handling without a backend, and BEM-structured CSS design tokens.",
+    repo: "https://github.com/jhm323/flashpoint",
+    live: "https://flashpoint-tan.vercel.app/",
+    image: "assets/flashpoint.png",
   },
 ];
