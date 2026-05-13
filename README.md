@@ -20,9 +20,23 @@ Most of my recent work has been in JavaScript/TypeScript (React, Node, MongoDB),
 
 ## Tech
 
-JavaScript (ES6+) · TypeScript · React · Node.js · Express  
-MongoDB · PostgreSQL · REST APIs · JWT  
-Git · GitHub · CI/CD  
+**Languages**
+JavaScript (ES6+) · TypeScript · HTML5 · CSS3
+
+**Frontend**
+React · React Context · Tailwind CSS · BEM · Flexbox · Grid · Responsive Design
+
+**Backend**
+Node.js · Express · Meteor · REST APIs · JWT
+
+**Databases**
+MongoDB · PostgreSQL
+
+**AI & APIs**
+RAG · LLM Integration · Groq API · Llama 3.3 70B · PDF.js · Formspree
+
+**Tools & Deployment**
+Git · GitHub · CI/CD · Netlify · GitHub Pages · Vercel
 
 ---
 
