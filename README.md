@@ -83,8 +83,10 @@ HTML · CSS · Grid · Flexbox
 
 ### CodeRef AI — RAG-Powered Code Reference Tool
 Vanilla JavaScript · PDF.js · Groq API · Llama 3.3 70B · Tailwind CSS
+
 [Live Demo](https://jhm323.github.io/-AEC-building-code-research-tool/) 
 [Repo](https://github.com/Jhm323/-AEC-building-code-research-tool)
+
 Built a browser-based RAG application for AEC professionals — no backend, no framework, no build step.
 
 Parses and chunks 800+ page building code PDFs client-side into 7,000+ searchable passages
@@ -96,6 +98,9 @@ Strict anti-hallucination system prompt enforces citation-only responses from a 
 
 ### FlashPoint — Static Gallery Website
 HTML · CSS · JavaScript · Netlify · Formspree
+
+[Live Site](https://flashpoint-tan.vercel.app/)
+[Repo](https://github.com/Jhm323/FlashPoint)
 Built a production website for a South Philly outsider art gallery and community space.
 
 Designed a stark black-and-white gallery aesthetic with a subtle rainbow animation accent
@@ -103,7 +108,7 @@ Integrated a persistent live jazz radio player using localStorage so audio conti
 Wired two Formspree forms for contact and exhibit scheduling with no backend required
 Built an admin feature for gallery owners to upload exhibition photos and manage calendar events
 
-[Live Site](https://flashpoint-tan.vercel.app/)
+
 
 ---
 
