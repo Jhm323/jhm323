@@ -81,8 +81,6 @@ HTML · CSS · Grid · Flexbox
 
 ---
 
-### Currently Working on getting these up on portfolio
-
 ### CodeRef AI — RAG-Powered Code Reference Tool
 Vanilla JavaScript · PDF.js · Groq API · Llama 3.3 70B · Tailwind CSS
 [Live Demo](https://jhm323.github.io/-AEC-building-code-research-tool/) 
@@ -108,6 +106,9 @@ Built an admin feature for gallery owners to upload exhibition photos and manage
 [Live Site](https://flashpoint-tan.vercel.app/)
 
 ---
+
+
+### Currently Working on getting these up on portfolio
 
 ### MCP 
 
