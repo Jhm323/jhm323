@@ -69,11 +69,29 @@ HTML · CSS · Grid · Flexbox
 
 ### Currently Working on getting these up on portfolio
 
-### AEC CodeRef tool — AI retrvial 
+### CodeRef AI — RAG-Powered Code Reference Tool
+Vanilla JavaScript · PDF.js · Groq API · Llama 3.3 70B · Tailwind CSS
+[Live Demo](https://jhm323.github.io/-AEC-building-code-research-tool/) 
+[Repo](https://github.com/Jhm323/-AEC-building-code-research-tool)
+Built a browser-based RAG application for AEC professionals — no backend, no framework, no build step.
+
+Parses and chunks 800+ page building code PDFs client-side into 7,000+ searchable passages
+Returns exact verbatim code text with section citations — zero summarization or paraphrasing
+Auto-expands cross-referenced sections so engineers can trace requirements across the full document
+Strict anti-hallucination system prompt enforces citation-only responses from a 70B LLM
 
 ---
 
-### FlashPoint — Exhibit website
+### FlashPoint — Static Gallery Website
+HTML · CSS · JavaScript · Netlify · Formspree
+Built a production website for a South Philly outsider art gallery and community space.
+
+Designed a stark black-and-white gallery aesthetic with a subtle rainbow animation accent
+Integrated a persistent live jazz radio player using localStorage so audio continues across page navigation
+Wired two Formspree forms for contact and exhibit scheduling with no backend required
+Built an admin feature for gallery owners to upload exhibition photos and manage calendar events
+
+[Live Site](https://flashpoint-tan.vercel.app/)
 
 ---
 
