@@ -9,12 +9,13 @@ james.holden.moore@gmail.com
 ---
 
 ## About
+I'm a full-stack engineer focused on building data-driven applications and internal tools that solve operational problems.
 
-I’m a full-stack engineer focused on building data-driven applications and internal tools that actually solve operational problems.
+My background spans a few industries shapes how I build. Before software, I worked in logistics and food distribution, where systems and workflows had real operational stakes. More recently, I worked as a data analyst for a civil forensic engineering group — managing, interpreting, and communicating structured data in high-accountability environments where precision and clarity were paramount.
 
-Before moving into software, I worked in logistics, food distribution, and data coordination roles where systems and workflows mattered a lot. That experience still shapes how I build — I tend to focus on reliability, clarity, and making things useful in real-world conditions.
+My education in Architecture, Engineering, and Construction (AEC) adds another layer to that foundation. It gave me a working understanding of how complex built-environment projects are scoped, coordinated, and documented — and it directly informs how I think about data modeling, system design, and product solutions for the AEC and infrastructure space.
 
-Most of my recent work has been in JavaScript/TypeScript (React, Node, MongoDB), building API-driven applications with authentication, data pipelines, and user-facing features.
+Most of my recent development work has been in JavaScript/TypeScript (React, Node, MongoDB), building API-driven applications with authentication, data pipelines, and user-facing features. I'm especially interested in tools that bridge domain expertise and software — where knowing the industry is just as important as writing clean code.
 
 ---
 
