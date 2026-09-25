@@ -1,160 +1,71 @@
-# James Holden Moore
+# James (Holden) Moore
 
-**Full-Stack Engineer | Data & Automation**
+**Full-Stack Engineer | React • Node • PostgreSQL | Building AI-Assisted Systems & Automation**
 
-Charlotte, NC  
-james.holden.moore@gmail.com  
-[LinkedIn](https://www.linkedin.com/in/james-holden-moore) • [Portfolio](https://jhm323.github.io/jhm323/)
-
----
+Charlotte, NC · Bilingual in English and Spanish
+[LinkedIn](https://www.linkedin.com/in/jholdenm) • [Portfolio](PORTFOLIO_URL)
 
 ## About
-I'm a full-stack engineer focused on building data-driven applications and internal tools that solve operational problems.
 
-My background spans a few industries shapes how I build. Before software, I worked in logistics and food distribution, where systems and workflows had real operational stakes. More recently, I worked as a data analyst for a civil forensic engineering group — managing, interpreting, and communicating structured data in high-accountability environments where precision and clarity were paramount.
+I specialize in full-stack engineering, AI-assisted tooling, and the internal systems that quietly make everything else work better. TypeScript, React, Node.js, PostgreSQL, MongoDB — end to end.
 
-My education in Architecture, Engineering, and Construction (AEC) adds another layer to that foundation. It gave me a working understanding of how complex built-environment projects are scoped, coordinated, and documented — and it directly informs how I think about data modeling, system design, and product solutions for the AEC and infrastructure space.
+I'm a percussionist at heart, driven by rhythm and wired for pattern recognition. I see it in code, in systems, in people, in nature, and in communication. Before writing production code I managed a 33-acre farm, coordinated logistics across 320+ nonprofit agencies, and spent years in the gap between messy real-world data and the systems supposed to handle it. It all comes back to one thing — pattern recognition. It's how I think and build.
 
-Most of my recent development work has been in JavaScript/TypeScript (React, Node, MongoDB), building API-driven applications with authentication, data pipelines, and user-facing features. I'm especially interested in tools that bridge domain expertise and software — where knowing the industry is just as important as writing clean code.
+## What I'm Building
 
----
+**World Racing Group** — Web Developer
+Building for the World of Outlaws, DIRTcar, and DIRTVision ecosystem: real-time data, live stats, and standings for motorsports fans.
+
+**International Spiritual Nonprofit — WordPress Platform**
+Custom development on a live, global platform. Replacing legacy plugins with custom solutions to improve security and architecture, and streamlining UX and brand consistency across connected sites.
+
+**Hybrid Hiring Solutions** — TypeScript · React · Meteor · MongoDB
+Production hiring platform with real-time data sync via Meteor's DDP/WebSockets layer, domain-driven APIs, and validated write operations. Full Agile lifecycle via Jira-integrated Git workflows (tickets → PRs → review → testing).
+
+**Messages from the Magi — Numerology Oracle Platform**
+A card-based oracle system: 53-card database, daily card logic, compatibility calculations, and an AI-assisted reading layer. Storefront, trainings, teachings, and reading access, with a custom API, component system, and design tokens built from scratch.
+
+**Zodiagram — AI-Powered Astrology Platform** — React 18 · TypeScript · Supabase · Tailwind/shadcn · Framer Motion · TanStack Query
+Personalized astrology birthday cards via the Claude API, with an ad engine, monetization layer, and impression/conversion tracking. The design challenge: turning loading time into revenue without it feeling like an interruption.
+
+## Featured Projects
+
+**CodeRef AI — RAG-Powered Building Code Reference** · [Live Demo](https://jhm323.github.io/coderef-ai) · [Repo](https://github.com/jhm323/coderef-ai)
+Vanilla JS · PDF.js · Groq API · Llama 3.3 70B · Tailwind CSS
+- Parses 800+ page building code PDFs client-side into 7,000+ searchable passages
+- Returns exact verbatim code text with section citations — no summarizing or paraphrasing
+- Auto-expands cross-referenced sections so engineers can trace requirements across the document
+
+**Flashpoint Gallery** · [Live Site](https://flashpoint-tan.vercel.app/) · [Repo](https://github.com/jhm323/flashpoint)
+HTML · CSS · JavaScript · Formspree · Netlify
+- Production site for a South Philly outsider art gallery and community space
+- Persistent live jazz stream across page navigation
+- Admin layer for events, exhibitions, and archives
+
+**WTWR — Full-Stack App with Auth** · [Frontend](https://github.com/jhm323/se_project_react) · [API](https://github.com/jhm323/se_project_express)
+React · Node · Express · MongoDB · JWT
+- JWT auth, protected routes, and ownership-based access control
+
+**News Explorer** · [Repo](https://github.com/jhm323/News-Explorer)
+React · REST APIs · CSS
+- Search, save-for-later, pagination, and loading/error states
 
 ## Tech
 
-**Languages**
-JavaScript (ES6+) · TypeScript · HTML5 · CSS3
+**Languages** TypeScript · JavaScript (ES6+) · HTML5 · CSS3
+**Frontend** React 18 · React Context · TanStack Query · Tailwind CSS · shadcn/ui · Framer Motion · Responsive Design
+**Backend** Node.js · Express · Meteor (DDP/WebSockets) · REST APIs · JWT
+**Databases** PostgreSQL · MongoDB · Supabase
+**AI & APIs** Claude API · RAG · LLM Integration · Groq API · Llama 3.3 70B · PDF.js
+**Tools** Git · GitHub · Jira · CI/CD · Vercel · Netlify · GitHub Pages · WordPress
 
-**Frontend**
-React · React Context · Tailwind CSS · BEM · Flexbox · Grid · Responsive Design
+## Ongoing Focus
 
-**Backend**
-Node.js · Express · Meteor · REST APIs · JWT
+- AI-integrated experiences people actually want to use
+- Beautiful UX/UI and widgets that bring a smile
+- Clean architecture, strong bias toward shipping
+- Automating the grunt work
 
-**Databases**
-MongoDB · PostgreSQL
+Best in collaboration — with teams who want someone who can hold the whole system in their head, not just close tickets.
 
-**AI & APIs**
-RAG · LLM Integration · Groq API · Llama 3.3 70B · PDF.js · Formspree
-
-**Tools & Deployment**
-Git · GitHub · CI/CD · Netlify · GitHub Pages · Vercel
-
----
-
-## Projects
-
-### Hybrid Hiring — Full-Stack Application
-TypeScript · React · Meteor · MongoDB
-
-Worked on a production hiring platform in a team setting.
-
-- Built reactive UI features using Meteor publications and subscriptions  
-- Contributed to backend methods with validated write operations  
-- Worked through a full dev workflow (tickets → PRs → review → testing)  
-
----
-
-### WTWR — Full-Stack App with Authentication
-React · Node · Express · MongoDB · JWT  
-[Live Demo](https://wtwr-frontend-5mwu.onrender.com/)
-
-- Built a full-stack app with JWT auth and protected routes  
-- Managed frontend state with React Context  
-- Connected to a custom backend for user and item management  
-
----
-
-### News Explorer — API-Driven Search App
-React · REST APIs · CSS  
-[Live Demo](https://jhm323.github.io/News-Explorer/)
-
-- Built a news search app with saved articles and persistent state  
-- Handled loading states, errors, and pagination for a smoother UX  
-
----
-
-### Around the U.S. — Responsive Frontend
-HTML · CSS · Grid · Flexbox  
-[Live Demo](https://jhm323.github.io/se_project_aroundtheus/)
-
-- Built a responsive layout from Figma designs  
-- Focused on layout stability across screen sizes and content changes  
-
----
-
-### CodeRef AI — RAG-Powered Code Reference Tool
-Vanilla JavaScript · PDF.js · Groq API · Llama 3.3 70B · Tailwind CSS
-
-[Live Demo](https://jhm323.github.io/-AEC-building-code-research-tool/) 
-[Repo](https://github.com/Jhm323/-AEC-building-code-research-tool)
-
-Built a browser-based RAG application for AEC professionals — no backend, no framework, no build step.
-
-Parses and chunks 800+ page building code PDFs client-side into 7,000+ searchable passages
-Returns exact verbatim code text with section citations — zero summarization or paraphrasing
-Auto-expands cross-referenced sections so engineers can trace requirements across the full document
-Strict anti-hallucination system prompt enforces citation-only responses from a 70B LLM
-
----
-
-### FlashPoint — Static Gallery Website
-HTML · CSS · JavaScript · Netlify · Formspree
-
-[Live Site](https://flashpoint-tan.vercel.app/)
-[Repo](https://github.com/Jhm323/FlashPoint)
-Built a production website for a South Philly outsider art gallery and community space.
-
-Designed a stark black-and-white gallery aesthetic with a subtle rainbow animation accent
-Integrated a persistent live jazz radio player using localStorage so audio continues across page navigation
-Wired two Formspree forms for contact and exhibit scheduling with no backend required
-Built an admin feature for gallery owners to upload exhibition photos and manage calendar events
-
-
-
----
-
-
-### Currently Working on getting these up on portfolio
-
-### MCP 
-
----
-
-### Basil 
-
----
-
-### Mother Meera APP 
-
----
-
-### Messages from the Magi APP
-
----
-
-### Artiji
-
----
-
-## Experience (selected)
-
-**Data Analyst — Moore Hackney & Associates (2025–Present)**  
-Working with engineering data, building reporting tools, and improving data workflows.
-
-**Data Coordinator — Dispute Resolution Data (2019–2025)**  
-Built internal tools and automated reporting workflows; worked with large-scale datasets and platform improvements.
-
-**Agency Coordinator — Lowcountry Food Bank (2021–2022)**  
-Helped operate and improve systems supporting large-scale food distribution across 300+ partner organizations.
-
----
-
-## Currently interested in
-
-- Full-stack roles  
-- Internal tools / automation  
-- Data-driven applications  
-
----
-
-Feel free to reach out or connect.
+**Open to** full-stack engineering roles, freelance builds, and collaborative projects where execution matters. Reach out on [LinkedIn](https://www.linkedin.com/in/jholdenm).
