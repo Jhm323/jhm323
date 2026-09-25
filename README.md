@@ -3,7 +3,7 @@
 **Full-Stack Engineer | React • Node • PostgreSQL | Building AI-Assisted Systems & Automation**
 
 Charlotte, NC · Bilingual in English and Spanish
-[LinkedIn](https://www.linkedin.com/in/jholdenm) • [Portfolio](PORTFOLIO_URL)
+[LinkedIn](https://www.linkedin.com/in/jholdenm) • [Portfolio](https://jhm323.github.io/jhm323/)
 
 ## About
 
@@ -30,23 +30,23 @@ Personalized astrology birthday cards via the Claude API, with an ad engine, mon
 
 ## Featured Projects
 
-**CodeRef AI — RAG-Powered Building Code Reference** · [Live Demo](https://jhm323.github.io/coderef-ai) · [Repo](https://github.com/jhm323/coderef-ai)
+**CodeRef AI — RAG-Powered Building Code Reference** · [Live Demo](https://jhm323.github.io/-AEC-building-code-research-tool/) · [Repo](https://github.com/Jhm323/-AEC-building-code-research-tool)
 Vanilla JS · PDF.js · Groq API · Llama 3.3 70B · Tailwind CSS
 - Parses 800+ page building code PDFs client-side into 7,000+ searchable passages
 - Returns exact verbatim code text with section citations — no summarizing or paraphrasing
 - Auto-expands cross-referenced sections so engineers can trace requirements across the document
 
-**Flashpoint Gallery** · [Live Site](https://flashpoint-tan.vercel.app/) · [Repo](https://github.com/jhm323/flashpoint)
+**Flashpoint Gallery** · [Live Site](https://flashpoint-tan.vercel.app/) · [Repo](https://github.com/Jhm323/FlashPoint)
 HTML · CSS · JavaScript · Formspree · Netlify
 - Production site for a South Philly outsider art gallery and community space
 - Persistent live jazz stream across page navigation
 - Admin layer for events, exhibitions, and archives
 
-**WTWR — Full-Stack App with Auth** · [Frontend](https://github.com/jhm323/se_project_react) · [API](https://github.com/jhm323/se_project_express)
+**WTWR — Full-Stack App with Auth** · [Live Demo](https://wtwr-frontend-5mwu.onrender.com/) · [Frontend](https://github.com/jhm323/se_project_react) · [API](https://github.com/jhm323/se_project_express)
 React · Node · Express · MongoDB · JWT
 - JWT auth, protected routes, and ownership-based access control
 
-**News Explorer** · [Repo](https://github.com/jhm323/News-Explorer)
+**News Explorer** · [Live Demo](https://jhm323.github.io/News-Explorer/) · [Repo](https://github.com/jhm323/News-Explorer)
 React · REST APIs · CSS
 - Search, save-for-later, pagination, and loading/error states
 
