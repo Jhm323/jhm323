@@ -62,8 +62,8 @@ const PROJECTS = [
     ],
     techLabel:
       "Demonstrates a complete RAG pipeline — PDF parsing, chunking, retrieval, and LLM integration — with no backend or framework.",
-    repo: "https://github.com/jhm323/coderef-ai",
-    live: "https://jhm323.github.io/coderef-ai",
+    repo: "https://github.com/Jhm323/-AEC-building-code-research-tool",
+    live: "https://jhm323.github.io/-AEC-building-code-research-tool/",
     image: "assets/coderef-ai.png",
   },
 
@@ -86,6 +86,7 @@ const PROJECTS = [
     techLabel:
       "Built to practice API integration, backend routing, authentication, and database operations.",
     repo: "https://github.com/jhm323/se_project_react",
+    live: "https://wtwr-frontend-5mwu.onrender.com/",
     image: "assets/wtwr.png",
   },
 
@@ -158,6 +159,7 @@ const PROJECTS = [
     techLabel:
       "Focused on API integration, component structure, and state management.",
     repo: "https://github.com/jhm323/News-Explorer",
+    live: "https://jhm323.github.io/News-Explorer/",
     image: "assets/news-explorer.png",
   },
 
@@ -207,7 +209,7 @@ const PROJECTS = [
     ],
     techLabel:
       "Demonstrates modular vanilla JS architecture, persistent audio state, form handling without a backend, and BEM-structured CSS design tokens.",
-    repo: "https://github.com/jhm323/flashpoint",
+    repo: "https://github.com/Jhm323/FlashPoint",
     live: "https://flashpoint-tan.vercel.app/",
     image: "assets/flashpoint.png",
   },
