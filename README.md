@@ -1,27 +1,3 @@
-
-JhmMcBk Pro, Connected
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Readme · MD
 # James (Holden) Moore
  
 **Full-Stack Engineer | React • Node • PostgreSQL | Building AI-Assisted Systems & Automation**
