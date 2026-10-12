@@ -13,7 +13,7 @@ I'm a percussionist at heart, driven by rhythm and wired for pattern recognition
  
 ## What I'm Building
  
-**World Racing Group** — Web Developer (2025–Present)
+**World Racing Group** — Web Developer (2026–Present)
 Maintaining WordPress sites, custom plugins, and MariaDB queries that power live race results, standings, and streaming content for World of Outlaws, DIRTcar, and DIRTVision. Troubleshooting third-party API integrations and contributing to internal race-day tools.
  
 **International Spiritual Nonprofit — WordPress Platform**
